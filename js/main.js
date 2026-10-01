@@ -335,7 +335,7 @@ function initServiceModals() {
         'Reservasi jadwal konsultasi statistik tatap muka',
         'Informasi syarat & prosedur pengajuan rekomendasi'
       ],
-      link: 'https://wa.me/628123456789',
+      link: 'https://wa.me/6285111383218',
       linkText: 'Chat via WhatsApp PST'
     },
     'elibrary': {
