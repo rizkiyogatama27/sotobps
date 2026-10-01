@@ -5,12 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Admin - SOTO 3524 BPS Lamongan</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="js/tailwind.config.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,7 +22,8 @@
 <body class="font-jakarta text-[#2E3034] bg-[#F4F5F5] min-h-screen flex">
 
   <!-- SIDEBAR -->
-  <aside id="sidebar" class="w-64 bg-white border-r border-black/5 flex flex-col h-screen fixed md:sticky top-0 z-40 transition-transform duration-300 -translate-x-full md:translate-x-0">
+  <aside id="sidebar"
+    class="w-64 bg-white border-r border-black/5 flex flex-col h-screen fixed md:sticky top-0 z-40 transition-transform duration-300 -translate-x-full md:translate-x-0">
     <div class="p-6 border-b border-black/5 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <img src="assets/images/logo-bps.png" alt="BPS Logo" class="h-8">
@@ -33,32 +36,38 @@
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
-    
+
     <nav class="flex-1 p-4 space-y-1 overflow-y-auto" id="sidebarNav">
-      <a href="#" data-target="dashboard" class="nav-btn flex items-center gap-3 px-3 py-2.5 bg-[#0266B3]/10 text-[#0266B3] rounded-xl text-sm font-semibold transition-colors">
+      <a href="#" data-target="dashboard"
+        class="nav-btn flex items-center gap-3 px-3 py-2.5 bg-[#0266B3]/10 text-[#0266B3] rounded-xl text-sm font-semibold transition-colors">
         <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
         Dashboard
       </a>
-      <a href="#" data-target="data" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="data"
+        class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="database" class="w-4 h-4"></i>
         Data Statistik
       </a>
-      <a href="#" data-target="requests" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="requests"
+        class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="file-text" class="w-4 h-4"></i>
         Permintaan Data
       </a>
-      <a href="#" data-target="users" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="users"
+        class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="users" class="w-4 h-4"></i>
         Pengguna SSO
       </a>
-      <a href="#" data-target="settings" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="settings"
+        class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="settings" class="w-4 h-4"></i>
         Pengaturan
       </a>
     </nav>
-    
+
     <div class="p-4 border-t border-black/5">
-      <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-red-600 hover:bg-red-50 rounded-xl text-sm font-semibold transition-colors">
+      <a href="index.html"
+        class="flex items-center gap-3 px-3 py-2.5 text-red-600 hover:bg-red-50 rounded-xl text-sm font-semibold transition-colors">
         <i data-lucide="log-out" class="w-4 h-4"></i>
         Keluar
       </a>
@@ -75,16 +84,19 @@
         </button>
         <h2 id="pageTitle" class="text-lg font-bold text-[#171719]">Overview</h2>
       </div>
-      
+
       <div class="flex items-center gap-4">
         <div class="relative hidden sm:block">
           <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <input type="text" placeholder="Cari data..." class="pl-9 pr-4 py-2 bg-gray-50 border border-black/5 rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-[#0266B3]/20 focus:border-[#0266B3]">
+          <input type="text" placeholder="Cari data..."
+            class="pl-9 pr-4 py-2 bg-gray-50 border border-black/5 rounded-full text-xs focus:outline-none focus:ring-2 focus:ring-[#0266B3]/20 focus:border-[#0266B3]">
         </div>
-        <button class="w-9 h-9 rounded-full bg-gray-100 border border-black/5 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+        <button
+          class="w-9 h-9 rounded-full bg-gray-100 border border-black/5 flex items-center justify-center text-gray-600 hover:bg-gray-200">
           <i data-lucide="bell" class="w-4 h-4"></i>
         </button>
-        <div class="w-9 h-9 rounded-full bg-[#0266B3] text-white flex items-center justify-center font-bold text-sm shadow-md">
+        <div
+          class="w-9 h-9 rounded-full bg-[#0266B3] text-white flex items-center justify-center font-bold text-sm shadow-md">
           A
         </div>
       </div>
@@ -92,14 +104,16 @@
 
     <!-- CONTENT SECTIONS -->
     <div class="p-6 sm:p-8 space-y-6 relative h-full">
-      
+
       <!-- DASHBOARD SECTION (Default) -->
       <div id="section-dashboard" class="content-section block space-y-6">
         <!-- Welcome Banner -->
-        <div class="bg-gradient-to-r from-[#0266B3] to-[#38BDF8] rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+        <div
+          class="bg-gradient-to-r from-[#0266B3] to-[#38BDF8] rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
           <div class="relative z-10">
             <h3 class="text-2xl font-bold mb-2">Selamat Datang, Admin! 👋</h3>
-            <p class="text-blue-100 text-sm max-w-lg">Ini adalah halaman *mockup* Dashboard Admin SOTO BPS Lamongan. Anda bisa mengelola publikasi, melihat statistik pengunjung, dan merespons permintaan data dari sini.</p>
+            <p class="text-blue-100 text-sm max-w-lg">Ini adalah halaman *mockup* Dashboard Admin SOTO BPS Lamongan.
+              Anda bisa mengelola publikasi, melihat statistik pengunjung, dan merespons permintaan data dari sini.</p>
           </div>
           <i data-lucide="pie-chart" class="absolute right-[-20px] top-[-20px] w-48 h-48 text-white opacity-10"></i>
         </div>
@@ -113,7 +127,7 @@
               </div>
               <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">+12%</span>
             </div>
-            <p class="text-gray-500 text-xs font-semibold mb-1">Total Kunjungan SOTO</p>
+            <p class="text-gray-500 text-xs font-semibold mb-1">Total Kunjugan SOTO</p>
             <h4 class="text-2xl font-bold text-[#171719]">12,450</h4>
           </div>
           <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
@@ -170,21 +184,27 @@
                   <td class="px-5 py-4 font-medium">Budi Santoso</td>
                   <td class="px-5 py-4 text-gray-500">Pemkab Lamongan</td>
                   <td class="px-5 py-4">Data Pertanian 2025</td>
-                  <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100">Diproses</span></td>
+                  <td class="px-5 py-4"><span
+                      class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100">Diproses</span>
+                  </td>
                   <td class="px-5 py-4 text-gray-500 text-xs">Hari ini, 09:30</td>
                 </tr>
                 <tr class="hover:bg-gray-50 transition-colors">
                   <td class="px-5 py-4 font-medium">Siti Aminah</td>
                   <td class="px-5 py-4 text-gray-500">Mahasiswa</td>
                   <td class="px-5 py-4">IPM Kecamatan</td>
-                  <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span></td>
+                  <td class="px-5 py-4"><span
+                      class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span>
+                  </td>
                   <td class="px-5 py-4 text-gray-500 text-xs">Kemarin, 14:15</td>
                 </tr>
                 <tr class="hover:bg-gray-50 transition-colors">
                   <td class="px-5 py-4 font-medium">Ahmad Fauzi</td>
                   <td class="px-5 py-4 text-gray-500">Swasta / Peneliti</td>
                   <td class="px-5 py-4">Inflasi Tahunan</td>
-                  <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span></td>
+                  <td class="px-5 py-4"><span
+                      class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span>
+                  </td>
                   <td class="px-5 py-4 text-gray-500 text-xs">30 Sep 2026</td>
                 </tr>
               </tbody>
@@ -205,79 +225,98 @@
               <p class="text-sm text-gray-500">Ubah data statistik yang tampil di halaman depan (Landing Page).</p>
             </div>
           </div>
-          
+
           <form id="statsForm" class="space-y-8">
             <!-- Pill 1 -->
             <div class="p-5 border border-black/10 rounded-2xl bg-gray-50/50 space-y-4">
-              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span class="bg-[#171719] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> Indikator Kiri</h4>
+              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span
+                  class="bg-[#171719] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                Indikator Kiri</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Nilai Utama</label>
-                  <input type="text" id="p1_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="1.38">
+                  <input type="text" id="p1_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="1.38">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Satuan (Label 1)</label>
-                  <input type="text" id="p1_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Juta Jiwa">
+                  <input type="text" id="p1_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="Juta Jiwa">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Keterangan (Label 2)</label>
-                  <input type="text" id="p1_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Jumlah Penduduk Terdata">
+                  <input type="text" id="p1_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="Jumlah Penduduk Terdata">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Badge Sumber</label>
-                  <input type="text" id="p1_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="SP2020 Sensus">
+                  <input type="text" id="p1_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="SP2020 Sensus">
                 </div>
               </div>
             </div>
 
             <!-- Pill 2 -->
             <div class="p-5 border border-black/10 rounded-2xl bg-gray-50/50 space-y-4">
-              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span class="bg-[#E34A32] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> Indikator Tengah</h4>
+              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span
+                  class="bg-[#E34A32] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                Indikator Tengah</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Nilai Utama</label>
-                  <input type="text" id="p2_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="4.68%">
+                  <input type="text" id="p2_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="4.68%">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Satuan (Label 1)</label>
-                  <input type="text" id="p2_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Laju PDRB">
+                  <input type="text" id="p2_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="Laju PDRB">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Keterangan (Label 2)</label>
-                  <input type="text" id="p2_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Pertumbuhan Ekonomi Positif">
+                  <input type="text" id="p2_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="Pertumbuhan Ekonomi Positif">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Badge Sumber</label>
-                  <input type="text" id="p2_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="ADHK Kontinu">
+                  <input type="text" id="p2_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="ADHK Kontinu">
                 </div>
               </div>
             </div>
 
             <!-- Pill 3 -->
             <div class="p-5 border border-black/10 rounded-2xl bg-gray-50/50 space-y-4">
-              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span class="bg-[#171719] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span> Indikator Kanan</h4>
+              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span
+                  class="bg-[#171719] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span>
+                Indikator Kanan</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Nilai Utama</label>
-                  <input type="text" id="p3_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="100%">
+                  <input type="text" id="p3_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="100%">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Satuan (Label 1)</label>
-                  <input type="text" id="p3_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Terverifikasi">
+                  <input type="text" id="p3_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="Terverifikasi">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Keterangan (Label 2)</label>
-                  <input type="text" id="p3_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Metadata Standar SDI">
+                  <input type="text" id="p3_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="Metadata Standar SDI">
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-gray-600 mb-1">Badge Sumber</label>
-                  <input type="text" id="p3_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="ISO/SNI 2026">
+                  <input type="text" id="p3_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm"
+                    value="ISO/SNI 2026">
                 </div>
               </div>
             </div>
 
             <div class="flex justify-end border-t border-black/10 pt-5">
-              <button type="submit" class="bg-[#0266B3] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#025696] transition-colors flex items-center gap-2">
+              <button type="submit"
+                class="bg-[#0266B3] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#025696] transition-colors flex items-center gap-2">
                 <i data-lucide="save" class="w-4 h-4"></i>
                 Simpan Perubahan
               </button>
@@ -293,18 +332,21 @@
             <i data-lucide="file-text" class="w-8 h-8"></i>
           </div>
           <h3 class="text-xl font-bold text-[#171719] mb-2">Daftar Permintaan Data</h3>
-          <p class="text-gray-500 max-w-md mx-auto">Halaman khusus untuk memproses dan merespons antrean permohonan data dari masyarakat atau instansi.</p>
+          <p class="text-gray-500 max-w-md mx-auto">Halaman khusus untuk memproses dan merespons antrean permohonan data
+            dari masyarakat atau instansi.</p>
         </div>
       </div>
 
       <!-- PENGGUNA SSO SECTION -->
       <div id="section-users" class="content-section hidden space-y-6">
         <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
-          <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div
+            class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <i data-lucide="users" class="w-8 h-8"></i>
           </div>
           <h3 class="text-xl font-bold text-[#171719] mb-2">Manajemen Pengguna</h3>
-          <p class="text-gray-500 max-w-md mx-auto">Kelola akses akun admin dan integrasi sistem SSO BPS di halaman ini.</p>
+          <p class="text-gray-500 max-w-md mx-auto">Kelola akses akun admin dan integrasi sistem SSO BPS di halaman ini.
+          </p>
         </div>
       </div>
 
@@ -315,7 +357,8 @@
             <i data-lucide="settings" class="w-8 h-8"></i>
           </div>
           <h3 class="text-xl font-bold text-[#171719] mb-2">Pengaturan Sistem</h3>
-          <p class="text-gray-500 max-w-md mx-auto">Pengaturan umum *website*, pemeliharaan sistem, dan konfigurasi API eksternal.</p>
+          <p class="text-gray-500 max-w-md mx-auto">Pengaturan umum *website*, pemeliharaan sistem, dan konfigurasi API
+            eksternal.</p>
         </div>
       </div>
 
@@ -338,13 +381,13 @@
     const pageTitle = document.getElementById('pageTitle');
 
     // Mobile Menu Toggle
-    if(mobileMenuBtn && sidebar) {
+    if (mobileMenuBtn && sidebar) {
       mobileMenuBtn.addEventListener('click', () => {
         sidebar.classList.remove('-translate-x-full');
       });
     }
 
-    if(closeSidebarBtn && sidebar) {
+    if (closeSidebarBtn && sidebar) {
       closeSidebarBtn.addEventListener('click', () => {
         sidebar.classList.add('-translate-x-full');
       });
@@ -354,15 +397,15 @@
     navBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         // 1. Reset all buttons to inactive state
         navBtns.forEach(b => {
           b.className = "nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors";
         });
-        
+
         // 2. Set clicked button to active state
         btn.className = "nav-btn flex items-center gap-3 px-3 py-2.5 bg-[#0266B3]/10 text-[#0266B3] rounded-xl text-sm font-semibold transition-colors";
-        
+
         // 3. Update Title
         pageTitle.textContent = btn.textContent.trim();
 
@@ -387,14 +430,14 @@
       const toast = document.createElement('div');
       const isError = type === 'error';
       toast.className = `transform translate-y-5 opacity-0 transition-all duration-300 bg-white border ${isError ? 'border-red-100' : 'border-blue-100'} p-4 rounded-xl shadow-xl flex items-center gap-3 pointer-events-auto max-w-sm`;
-      
+
       toast.innerHTML = `
         <div class="w-8 h-8 rounded-full ${isError ? 'bg-red-50 text-red-500' : 'bg-blue-50 text-[#0266B3]'} flex items-center justify-center flex-shrink-0">
           <i data-lucide="${isError ? 'x-circle' : 'info'}" class="w-4 h-4"></i>
         </div>
         <p class="text-xs font-semibold text-[#171719] leading-tight">${message}</p>
       `;
-      
+
       document.getElementById('toastContainer').appendChild(toast);
       lucide.createIcons({ root: toast });
 
@@ -411,7 +454,7 @@
     }
     // Form handling for Data Statistik
     const statsForm = document.getElementById('statsForm');
-    if(statsForm) {
+    if (statsForm) {
       // Pre-fill form from localStorage if exists
       const savedStats = localStorage.getItem('soto_vital_stats');
       if (savedStats) {
@@ -421,17 +464,17 @@
           document.getElementById('p1_l1').value = stats.p1_l1;
           document.getElementById('p1_l2').value = stats.p1_l2;
           document.getElementById('p1_badge').value = stats.p1_badge;
-          
+
           document.getElementById('p2_val').value = stats.p2_val;
           document.getElementById('p2_l1').value = stats.p2_l1;
           document.getElementById('p2_l2').value = stats.p2_l2;
           document.getElementById('p2_badge').value = stats.p2_badge;
-          
+
           document.getElementById('p3_val').value = stats.p3_val;
           document.getElementById('p3_l1').value = stats.p3_l1;
           document.getElementById('p3_l2').value = stats.p3_l2;
           document.getElementById('p3_badge').value = stats.p3_badge;
-        } catch(e) {}
+        } catch (e) { }
       }
 
       statsForm.addEventListener('submit', (e) => {
@@ -441,12 +484,12 @@
           p1_l1: document.getElementById('p1_l1').value,
           p1_l2: document.getElementById('p1_l2').value,
           p1_badge: document.getElementById('p1_badge').value,
-          
+
           p2_val: document.getElementById('p2_val').value,
           p2_l1: document.getElementById('p2_l1').value,
           p2_l2: document.getElementById('p2_l2').value,
           p2_badge: document.getElementById('p2_badge').value,
-          
+
           p3_val: document.getElementById('p3_val').value,
           p3_l1: document.getElementById('p3_l1').value,
           p3_l2: document.getElementById('p3_l2').value,
@@ -459,4 +502,5 @@
     }
   </script>
 </body>
+
 </html>

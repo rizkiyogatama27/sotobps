@@ -605,6 +605,46 @@ function loadCustomStats() {
   }
 }
 
+function initFeedbackModal() {
+  const openBtn = document.getElementById('openFeedbackBtn');
+  const closeBtn = document.getElementById('closeFeedbackBtn');
+  const modal = document.getElementById('feedbackModal');
+  const form = document.getElementById('feedbackForm');
+
+  if (openBtn && closeBtn && modal) {
+    // Hide initially via CSS classes to match pattern, but for this setup:
+    modal.style.display = 'none';
+
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modal.classList.add('is-open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modal.classList.remove('is-open');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('is-open');
+      }
+    });
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        showToast('Terima kasih! Masukan Anda telah berhasil dikirim.', 'info');
+        modal.style.display = 'none';
+        modal.classList.remove('is-open');
+        form.reset();
+      });
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadCustomStats();
+  initFeedbackModal();
 });
