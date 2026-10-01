@@ -554,4 +554,24 @@ document.addEventListener("DOMContentLoaded", () => {
   initQnaAccordion();
 });
 
+// Admin Login Handler
+window.handleLogin = function(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  
+  // Test credentials: admin@bps.go.id / admin123
+  if (email === 'admin@bps.go.id' && password === 'admin123') {
+    showToast('Login SSO Admin berhasil. Selamat datang!');
+    document.getElementById('adminLoginModal').classList.remove('is-open');
+    
+    // Redirect to admin dashboard after short delay
+    setTimeout(() => {
+      window.location.href = 'admin.html';
+    }, 1000);
+  } else {
+    showToast('Login gagal. Email atau kata sandi salah.', 'error');
+  }
+};
 
