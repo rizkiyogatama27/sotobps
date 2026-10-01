@@ -34,24 +34,24 @@
       </button>
     </div>
     
-    <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
-      <a href="#" class="flex items-center gap-3 px-3 py-2.5 bg-[#0266B3]/10 text-[#0266B3] rounded-xl text-sm font-semibold">
+    <nav class="flex-1 p-4 space-y-1 overflow-y-auto" id="sidebarNav">
+      <a href="#" data-target="dashboard" class="nav-btn flex items-center gap-3 px-3 py-2.5 bg-[#0266B3]/10 text-[#0266B3] rounded-xl text-sm font-semibold transition-colors">
         <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
         Dashboard
       </a>
-      <a href="#" class="dummy-link flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="data" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="database" class="w-4 h-4"></i>
         Data Statistik
       </a>
-      <a href="#" class="dummy-link flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="requests" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="file-text" class="w-4 h-4"></i>
         Permintaan Data
       </a>
-      <a href="#" class="dummy-link flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="users" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="users" class="w-4 h-4"></i>
         Pengguna SSO
       </a>
-      <a href="#" class="dummy-link flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
+      <a href="#" data-target="settings" class="nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors">
         <i data-lucide="settings" class="w-4 h-4"></i>
         Pengaturan
       </a>
@@ -73,7 +73,7 @@
         <button id="mobileMenuBtn" class="md:hidden p-2 -ml-2 rounded-lg hover:bg-gray-100 text-gray-600">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
-        <h2 class="text-lg font-bold text-[#171719]">Overview</h2>
+        <h2 id="pageTitle" class="text-lg font-bold text-[#171719]">Overview</h2>
       </div>
       
       <div class="flex items-center gap-4">
@@ -90,103 +90,153 @@
       </div>
     </header>
 
-    <!-- DASHBOARD CONTENT -->
-    <div class="p-6 sm:p-8 space-y-6">
+    <!-- CONTENT SECTIONS -->
+    <div class="p-6 sm:p-8 space-y-6 relative h-full">
       
-      <!-- Welcome Banner -->
-      <div class="bg-gradient-to-r from-[#0266B3] to-[#38BDF8] rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
-        <div class="relative z-10">
-          <h3 class="text-2xl font-bold mb-2">Selamat Datang, Admin! 👋</h3>
-          <p class="text-blue-100 text-sm max-w-lg">Ini adalah halaman *mockup* Dashboard Admin SOTO BPS Lamongan. Anda bisa mengelola publikasi, melihat statistik pengunjung, dan merespons permintaan data dari sini.</p>
+      <!-- DASHBOARD SECTION (Default) -->
+      <div id="section-dashboard" class="content-section block space-y-6">
+        <!-- Welcome Banner -->
+        <div class="bg-gradient-to-r from-[#0266B3] to-[#38BDF8] rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold mb-2">Selamat Datang, Admin! 👋</h3>
+            <p class="text-blue-100 text-sm max-w-lg">Ini adalah halaman *mockup* Dashboard Admin SOTO BPS Lamongan. Anda bisa mengelola publikasi, melihat statistik pengunjung, dan merespons permintaan data dari sini.</p>
+          </div>
+          <i data-lucide="pie-chart" class="absolute right-[-20px] top-[-20px] w-48 h-48 text-white opacity-10"></i>
         </div>
-        <i data-lucide="pie-chart" class="absolute right-[-20px] top-[-20px] w-48 h-48 text-white opacity-10"></i>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-full bg-blue-50 text-[#0266B3] flex items-center justify-center">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">+12%</span>
+            </div>
+            <p class="text-gray-500 text-xs font-semibold mb-1">Total Kunjungan SOTO</p>
+            <h4 class="text-2xl font-bold text-[#171719]">12,450</h4>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-full bg-orange-50 text-[#E34A32] flex items-center justify-center">
+                <i data-lucide="file-text" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">+5%</span>
+            </div>
+            <p class="text-gray-500 text-xs font-semibold mb-1">Permintaan Data Baru</p>
+            <h4 class="text-2xl font-bold text-[#171719]">142</h4>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <i data-lucide="database" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">Updated</span>
+            </div>
+            <p class="text-gray-500 text-xs font-semibold mb-1">Dataset Tersedia</p>
+            <h4 class="text-2xl font-bold text-[#171719]">856</h4>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
+                <i data-lucide="message-square" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-bold text-rose-500 bg-rose-50 px-2 py-1 rounded-full">3 Perlu Balasan</span>
+            </div>
+            <p class="text-gray-500 text-xs font-semibold mb-1">Pertanyaan QnA</p>
+            <h4 class="text-2xl font-bold text-[#171719]">24</h4>
+          </div>
+        </div>
+
+        <!-- Recent Activity Table -->
+        <div class="bg-white border border-black/5 rounded-2xl shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-black/5 flex items-center justify-between">
+            <h3 class="font-bold text-[#171719]">Aktivitas Permintaan Data Terbaru</h3>
+            <button class="text-xs font-semibold text-[#0266B3] hover:underline">Lihat Semua</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-gray-50/50 text-gray-500 text-xs uppercase font-semibold">
+                <tr>
+                  <th class="px-5 py-3">Nama Pemohon</th>
+                  <th class="px-5 py-3">Instansi / Kategori</th>
+                  <th class="px-5 py-3">Topik Data</th>
+                  <th class="px-5 py-3">Status</th>
+                  <th class="px-5 py-3">Tanggal</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-black/5 text-[#2E3034]">
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-5 py-4 font-medium">Budi Santoso</td>
+                  <td class="px-5 py-4 text-gray-500">Pemkab Lamongan</td>
+                  <td class="px-5 py-4">Data Pertanian 2025</td>
+                  <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100">Diproses</span></td>
+                  <td class="px-5 py-4 text-gray-500 text-xs">Hari ini, 09:30</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-5 py-4 font-medium">Siti Aminah</td>
+                  <td class="px-5 py-4 text-gray-500">Mahasiswa</td>
+                  <td class="px-5 py-4">IPM Kecamatan</td>
+                  <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span></td>
+                  <td class="px-5 py-4 text-gray-500 text-xs">Kemarin, 14:15</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-5 py-4 font-medium">Ahmad Fauzi</td>
+                  <td class="px-5 py-4 text-gray-500">Swasta / Peneliti</td>
+                  <td class="px-5 py-4">Inflasi Tahunan</td>
+                  <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span></td>
+                  <td class="px-5 py-4 text-gray-500 text-xs">30 Sep 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-10 h-10 rounded-full bg-blue-50 text-[#0266B3] flex items-center justify-center">
-              <i data-lucide="users" class="w-5 h-5"></i>
-            </div>
-            <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">+12%</span>
+      <!-- DATA STATISTIK SECTION -->
+      <div id="section-data" class="content-section hidden space-y-6">
+        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
+          <div class="w-16 h-16 bg-blue-50 text-[#0266B3] rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="database" class="w-8 h-8"></i>
           </div>
-          <p class="text-gray-500 text-xs font-semibold mb-1">Total Kunjungan SOTO</p>
-          <h4 class="text-2xl font-bold text-[#171719]">12,450</h4>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-10 h-10 rounded-full bg-orange-50 text-[#E34A32] flex items-center justify-center">
-              <i data-lucide="file-text" class="w-5 h-5"></i>
-            </div>
-            <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">+5%</span>
-          </div>
-          <p class="text-gray-500 text-xs font-semibold mb-1">Permintaan Data Baru</p>
-          <h4 class="text-2xl font-bold text-[#171719]">142</h4>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <i data-lucide="database" class="w-5 h-5"></i>
-            </div>
-            <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-full">Updated</span>
-          </div>
-          <p class="text-gray-500 text-xs font-semibold mb-1">Dataset Tersedia</p>
-          <h4 class="text-2xl font-bold text-[#171719]">856</h4>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
-          <div class="flex items-center justify-between mb-4">
-            <div class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center">
-              <i data-lucide="message-square" class="w-5 h-5"></i>
-            </div>
-            <span class="text-xs font-bold text-rose-500 bg-rose-50 px-2 py-1 rounded-full">3 Perlu Balasan</span>
-          </div>
-          <p class="text-gray-500 text-xs font-semibold mb-1">Pertanyaan QnA</p>
-          <h4 class="text-2xl font-bold text-[#171719]">24</h4>
+          <h3 class="text-xl font-bold text-[#171719] mb-2">Manajemen Data Statistik</h3>
+          <p class="text-gray-500 mb-6 max-w-md mx-auto">Di halaman ini nantinya admin dapat menambah, mengubah, atau menghapus dataset statistik yang ditampilkan di *landing page*.</p>
+          <button class="bg-[#0266B3] text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-[#025696] transition-colors" onclick="showAdminToast('Fitur unggah data belum aktif.')">
+            + Tambah Dataset Baru
+          </button>
         </div>
       </div>
 
-      <!-- Recent Activity Table -->
-      <div class="bg-white border border-black/5 rounded-2xl shadow-sm overflow-hidden">
-        <div class="p-5 border-b border-black/5 flex items-center justify-between">
-          <h3 class="font-bold text-[#171719]">Aktivitas Permintaan Data Terbaru</h3>
-          <button class="text-xs font-semibold text-[#0266B3] hover:underline">Lihat Semua</button>
+      <!-- PERMINTAAN DATA SECTION -->
+      <div id="section-requests" class="content-section hidden space-y-6">
+        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
+          <div class="w-16 h-16 bg-orange-50 text-[#E34A32] rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="file-text" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#171719] mb-2">Daftar Permintaan Data</h3>
+          <p class="text-gray-500 max-w-md mx-auto">Halaman khusus untuk memproses dan merespons antrean permohonan data dari masyarakat atau instansi.</p>
         </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-sm">
-            <thead class="bg-gray-50/50 text-gray-500 text-xs uppercase font-semibold">
-              <tr>
-                <th class="px-5 py-3">Nama Pemohon</th>
-                <th class="px-5 py-3">Instansi / Kategori</th>
-                <th class="px-5 py-3">Topik Data</th>
-                <th class="px-5 py-3">Status</th>
-                <th class="px-5 py-3">Tanggal</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-black/5 text-[#2E3034]">
-              <tr class="hover:bg-gray-50 transition-colors">
-                <td class="px-5 py-4 font-medium">Budi Santoso</td>
-                <td class="px-5 py-4 text-gray-500">Pemkab Lamongan</td>
-                <td class="px-5 py-4">Data Pertanian 2025</td>
-                <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100">Diproses</span></td>
-                <td class="px-5 py-4 text-gray-500 text-xs">Hari ini, 09:30</td>
-              </tr>
-              <tr class="hover:bg-gray-50 transition-colors">
-                <td class="px-5 py-4 font-medium">Siti Aminah</td>
-                <td class="px-5 py-4 text-gray-500">Mahasiswa</td>
-                <td class="px-5 py-4">IPM Kecamatan</td>
-                <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span></td>
-                <td class="px-5 py-4 text-gray-500 text-xs">Kemarin, 14:15</td>
-              </tr>
-              <tr class="hover:bg-gray-50 transition-colors">
-                <td class="px-5 py-4 font-medium">Ahmad Fauzi</td>
-                <td class="px-5 py-4 text-gray-500">Swasta / Peneliti</td>
-                <td class="px-5 py-4">Inflasi Tahunan</td>
-                <td class="px-5 py-4"><span class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span></td>
-                <td class="px-5 py-4 text-gray-500 text-xs">30 Sep 2026</td>
-              </tr>
-            </tbody>
-          </table>
+      </div>
+
+      <!-- PENGGUNA SSO SECTION -->
+      <div id="section-users" class="content-section hidden space-y-6">
+        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
+          <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="users" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#171719] mb-2">Manajemen Pengguna</h3>
+          <p class="text-gray-500 max-w-md mx-auto">Kelola akses akun admin dan integrasi sistem SSO BPS di halaman ini.</p>
+        </div>
+      </div>
+
+      <!-- PENGATURAN SECTION -->
+      <div id="section-settings" class="content-section hidden space-y-6">
+        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
+          <div class="w-16 h-16 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="settings" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#171719] mb-2">Pengaturan Sistem</h3>
+          <p class="text-gray-500 max-w-md mx-auto">Pengaturan umum *website*, pemeliharaan sistem, dan konfigurasi API eksternal.</p>
         </div>
       </div>
 
@@ -194,17 +244,21 @@
   </main>
 
   <!-- TOAST NOTIFICATION CONTAINER -->
-  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3"></div>
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
 
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Mobile Menu Toggle
+    // Elements
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const sidebar = document.getElementById('sidebar');
     const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.content-section');
+    const pageTitle = document.getElementById('pageTitle');
 
+    // Mobile Menu Toggle
     if(mobileMenuBtn && sidebar) {
       mobileMenuBtn.addEventListener('click', () => {
         sidebar.classList.remove('-translate-x-full');
@@ -217,17 +271,49 @@
       });
     }
 
+    // Tab Navigation Logic
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // 1. Reset all buttons to inactive state
+        navBtns.forEach(b => {
+          b.className = "nav-btn flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-[#171719] rounded-xl text-sm font-medium transition-colors";
+        });
+        
+        // 2. Set clicked button to active state
+        btn.className = "nav-btn flex items-center gap-3 px-3 py-2.5 bg-[#0266B3]/10 text-[#0266B3] rounded-xl text-sm font-semibold transition-colors";
+        
+        // 3. Update Title
+        pageTitle.textContent = btn.textContent.trim();
+
+        // 4. Hide all sections and show the target section
+        const targetId = btn.getAttribute('data-target');
+        sections.forEach(sec => {
+          sec.classList.remove('block');
+          sec.classList.add('hidden');
+        });
+        document.getElementById('section-' + targetId).classList.remove('hidden');
+        document.getElementById('section-' + targetId).classList.add('block');
+
+        // 5. Close sidebar on mobile after clicking
+        if (window.innerWidth < 768) {
+          sidebar.classList.add('-translate-x-full');
+        }
+      });
+    });
+
     // Dummy Toast Function
     function showAdminToast(message, type = 'info') {
       const toast = document.createElement('div');
       const isError = type === 'error';
-      toast.className = `transform translate-y-full opacity-0 transition-all duration-300 bg-white border ${isError ? 'border-red-100' : 'border-blue-100'} p-4 rounded-xl shadow-lg flex items-center gap-3`;
+      toast.className = `transform translate-y-5 opacity-0 transition-all duration-300 bg-white border ${isError ? 'border-red-100' : 'border-blue-100'} p-4 rounded-xl shadow-xl flex items-center gap-3 pointer-events-auto max-w-sm`;
       
       toast.innerHTML = `
         <div class="w-8 h-8 rounded-full ${isError ? 'bg-red-50 text-red-500' : 'bg-blue-50 text-[#0266B3]'} flex items-center justify-center flex-shrink-0">
           <i data-lucide="${isError ? 'x-circle' : 'info'}" class="w-4 h-4"></i>
         </div>
-        <p class="text-xs font-semibold text-[#171719]">${message}</p>
+        <p class="text-xs font-semibold text-[#171719] leading-tight">${message}</p>
       `;
       
       document.getElementById('toastContainer').appendChild(toast);
@@ -235,23 +321,15 @@
 
       // Animate in
       requestAnimationFrame(() => {
-        toast.classList.remove('translate-y-full', 'opacity-0');
+        toast.classList.remove('translate-y-5', 'opacity-0');
       });
 
       // Remove after 3s
       setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-full');
+        toast.classList.add('opacity-0', 'translate-y-5');
         setTimeout(() => toast.remove(), 300);
       }, 3000);
     }
-
-    // Add click listeners to dummy links
-    document.querySelectorAll('.dummy-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        showAdminToast('Fitur ini masih dalam tahap pengembangan (Mockup).');
-      });
-    });
   </script>
 </body>
 </html>
