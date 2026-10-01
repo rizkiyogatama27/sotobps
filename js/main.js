@@ -86,14 +86,14 @@ function wrapTextNodesWithWchar(node, list) {
     node.parentNode.replaceChild(fragment, node);
   } else if (node.nodeType === Node.ELEMENT_NODE) {
     // Skip element nodes that shouldn't be fragmented (badges, pills, icons, serif accents, buttons)
-    if (node.classList.contains('no-wchar') || 
-        node.closest('.no-wchar') ||
-        node.classList.contains('wchar') || 
-        node.hasAttribute('data-lucide') || 
-        node.classList.contains('font-serif-accent') ||
-        node.tagName === 'BUTTON' ||
-        node.tagName === 'I' ||
-        node.tagName === 'SVG') {
+    if (node.classList.contains('no-wchar') ||
+      node.closest('.no-wchar') ||
+      node.classList.contains('wchar') ||
+      node.hasAttribute('data-lucide') ||
+      node.classList.contains('font-serif-accent') ||
+      node.tagName === 'BUTTON' ||
+      node.tagName === 'I' ||
+      node.tagName === 'SVG') {
       return;
     }
     Array.from(node.childNodes).forEach(child => wrapTextNodesWithWchar(child, list));
@@ -450,7 +450,7 @@ function initServiceModals() {
       document.getElementById('modalTitle').textContent = data.title;
       document.getElementById('modalCategory').textContent = data.category;
       document.getElementById('modalDesc').textContent = data.description;
-      
+
       const featuresEl = document.getElementById('modalFeatures');
       featuresEl.innerHTML = data.features.map(f => `
         <div class="flex items-center gap-2">
@@ -474,14 +474,14 @@ function initServiceModals() {
   });
 
   // Global Helper for Quick Access Circle Buttons
-  window.openServiceModalByKey = function(key) {
+  window.openServiceModalByKey = function (key) {
     const data = serviceData[key];
     if (!data) return;
 
     document.getElementById('modalTitle').textContent = data.title;
     document.getElementById('modalCategory').textContent = data.category;
     document.getElementById('modalDesc').textContent = data.description;
-    
+
     const featuresEl = document.getElementById('modalFeatures');
     featuresEl.innerHTML = data.features.map(f => `
       <div class="flex items-center gap-2">
@@ -555,17 +555,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Admin Login Handler
-window.handleLogin = function(event) {
+window.handleLogin = function (event) {
   event.preventDefault();
-  
+
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
-  
+
   // Test credentials: admin@bps.go.id / admin123
   if (email === 'admin@bps.go.id' && password === 'admin123') {
     showToast('Login SSO Admin berhasil. Selamat datang!');
     document.getElementById('adminLoginModal').classList.remove('is-open');
-    
+
     // Redirect to admin dashboard after short delay
     setTimeout(() => {
       window.location.href = 'admin.html';
@@ -581,70 +581,41 @@ function loadCustomStats() {
   if (savedData) {
     try {
       const stats = JSON.parse(savedData);
+
+      // Update Hero Stats if they exist in localStorage
+      if(stats.hero1_val && document.getElementById('hero1-val')) document.getElementById('hero1-val').textContent = stats.hero1_val;
+      if(stats.hero1_l1 && document.getElementById('hero1-l1')) document.getElementById('hero1-l1').textContent = stats.hero1_l1;
       
+      if(stats.hero2_val && document.getElementById('hero2-val')) document.getElementById('hero2-val').textContent = stats.hero2_val;
+      if(stats.hero2_l1 && document.getElementById('hero2-l1')) document.getElementById('hero2-l1').textContent = stats.hero2_l1;
+      if(stats.hero2_sub && document.getElementById('hero2-sub')) document.getElementById('hero2-sub').textContent = stats.hero2_sub;
+      
+      if(stats.hero3_val && document.getElementById('hero3-val')) document.getElementById('hero3-val').textContent = stats.hero3_val;
+      if(stats.hero3_l1 && document.getElementById('hero3-l1')) document.getElementById('hero3-l1').textContent = stats.hero3_l1;
+
       // Update Pill 1
-      if(document.getElementById('stat1-val')) document.getElementById('stat1-val').textContent = stats.p1_val;
-      if(document.getElementById('stat1-l1')) document.getElementById('stat1-l1').textContent = stats.p1_l1;
-      if(document.getElementById('stat1-l2')) document.getElementById('stat1-l2').textContent = stats.p1_l2;
-      if(document.getElementById('stat1-badge')) document.getElementById('stat1-badge').textContent = stats.p1_badge;
+      if (document.getElementById('stat1-val')) document.getElementById('stat1-val').textContent = stats.p1_val;
+      if (document.getElementById('stat1-l1')) document.getElementById('stat1-l1').textContent = stats.p1_l1;
+      if (document.getElementById('stat1-l2')) document.getElementById('stat1-l2').textContent = stats.p1_l2;
+      if (document.getElementById('stat1-badge')) document.getElementById('stat1-badge').textContent = stats.p1_badge;
 
       // Update Pill 2
-      if(document.getElementById('stat2-val')) document.getElementById('stat2-val').textContent = stats.p2_val;
-      if(document.getElementById('stat2-l1')) document.getElementById('stat2-l1').textContent = stats.p2_l1;
-      if(document.getElementById('stat2-l2')) document.getElementById('stat2-l2').textContent = stats.p2_l2;
-      if(document.getElementById('stat2-badge')) document.getElementById('stat2-badge').textContent = stats.p2_badge;
+      if (document.getElementById('stat2-val')) document.getElementById('stat2-val').textContent = stats.p2_val;
+      if (document.getElementById('stat2-l1')) document.getElementById('stat2-l1').textContent = stats.p2_l1;
+      if (document.getElementById('stat2-l2')) document.getElementById('stat2-l2').textContent = stats.p2_l2;
+      if (document.getElementById('stat2-badge')) document.getElementById('stat2-badge').textContent = stats.p2_badge;
 
       // Update Pill 3
-      if(document.getElementById('stat3-val')) document.getElementById('stat3-val').textContent = stats.p3_val;
-      if(document.getElementById('stat3-l1')) document.getElementById('stat3-l1').textContent = stats.p3_l1;
-      if(document.getElementById('stat3-l2')) document.getElementById('stat3-l2').textContent = stats.p3_l2;
-      if(document.getElementById('stat3-badge')) document.getElementById('stat3-badge').textContent = stats.p3_badge;
-    } catch(e) {
+      if (document.getElementById('stat3-val')) document.getElementById('stat3-val').textContent = stats.p3_val;
+      if (document.getElementById('stat3-l1')) document.getElementById('stat3-l1').textContent = stats.p3_l1;
+      if (document.getElementById('stat3-l2')) document.getElementById('stat3-l2').textContent = stats.p3_l2;
+      if (document.getElementById('stat3-badge')) document.getElementById('stat3-badge').textContent = stats.p3_badge;
+    } catch (e) {
       console.error("Error loading stats", e);
-    }
-  }
-}
-
-function initFeedbackModal() {
-  const openBtn = document.getElementById('openFeedbackBtn');
-  const closeBtn = document.getElementById('closeFeedbackBtn');
-  const modal = document.getElementById('feedbackModal');
-  const form = document.getElementById('feedbackForm');
-
-  if (openBtn && closeBtn && modal) {
-    // Hide initially via CSS classes to match pattern, but for this setup:
-    modal.style.display = 'none';
-
-    openBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modal.classList.add('is-open');
-    });
-
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      modal.classList.remove('is-open');
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        modal.classList.remove('is-open');
-      }
-    });
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        showToast('Terima kasih! Masukan Anda telah berhasil dikirim.', 'info');
-        modal.style.display = 'none';
-        modal.classList.remove('is-open');
-        form.reset();
-      });
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   loadCustomStats();
-  initFeedbackModal();
 });
