@@ -388,7 +388,7 @@
                     <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700">Menunggu</span>
                   </td>
                   <td class="px-6 py-4 text-center">
-                    <button class="text-[#0266B3] hover:text-[#014a82] font-semibold text-xs">Proses</button>
+                    <button onclick="showAdminToast('Membuka halaman proses permintaan...', 'info')" class="text-[#0266B3] hover:text-[#014a82] font-semibold text-xs">Proses</button>
                   </td>
                 </tr>
                 <!-- Mockup Row 2 -->
@@ -401,7 +401,7 @@
                     <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Selesai</span>
                   </td>
                   <td class="px-6 py-4 text-center">
-                    <button class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Detail</button>
+                    <button onclick="showAdminToast('Membuka detail permintaan...', 'info')" class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Detail</button>
                   </td>
                 </tr>
               </tbody>
@@ -423,7 +423,7 @@
                 <p class="text-sm text-gray-500">Kelola akun admin dan akses sistem SOTO BPS.</p>
               </div>
             </div>
-            <button class="bg-[#009E49] hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors flex items-center gap-2">
+            <button onclick="showAdminToast('Membuka formulir penambahan akun baru...', 'info')" class="bg-[#009E49] hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors flex items-center gap-2">
               <i data-lucide="plus" class="w-4 h-4"></i> Tambah Akun
             </button>
           </div>
@@ -450,7 +450,7 @@
                     <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#0266B3]">Super Admin</span>
                   </td>
                   <td class="px-6 py-4 text-center">
-                    <button class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Edit</button>
+                    <button onclick="showAdminToast('Membuka pengaturan akun admin...', 'info')" class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Edit</button>
                   </td>
                 </tr>
                 <!-- Mockup Row 2 -->
@@ -464,7 +464,7 @@
                     <span class="px-3 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-600">Admin PST</span>
                   </td>
                   <td class="px-6 py-4 text-center">
-                    <button class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Edit</button>
+                    <button onclick="showAdminToast('Membuka pengaturan akun staf...', 'info')" class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Edit</button>
                   </td>
                 </tr>
               </tbody>
