@@ -575,14 +575,36 @@ window.handleLogin = function (event) {
   }
 };
 
-// Load custom stats from localStorage for Landing Page
-function loadCustomStats() {
-  const savedData = localStorage.getItem('soto_vital_stats');
-  if (savedData) {
-    try {
-      const stats = JSON.parse(savedData);
+// Load custom stats from PHP API (fallback to localStorage for Vercel)
+async function loadCustomStats() {
+  let stats = null;
 
-      // Update Hero Stats if they exist in localStorage
+  try {
+    // Try fetching from Laragon PHP backend
+    const response = await fetch('api/get_stats.php');
+    const result = await response.json();
+    if (result.status === 'success') {
+      stats = result.data;
+    }
+  } catch (err) {
+    console.warn("PHP API not reachable, falling back to localStorage.");
+  }
+
+  // Fallback to localStorage if PHP is not available
+  if (!stats) {
+    const savedData = localStorage.getItem('soto_vital_stats');
+    if (savedData) {
+      try {
+        stats = JSON.parse(savedData);
+      } catch (e) {
+        console.error("Error parsing localStorage stats", e);
+      }
+    }
+  }
+
+  if (stats) {
+    try {
+      // Update Hero Stats if they exist
       if(stats.hero1_val && document.getElementById('hero1-val')) document.getElementById('hero1-val').textContent = stats.hero1_val;
       if(stats.hero1_l1 && document.getElementById('hero1-l1')) document.getElementById('hero1-l1').textContent = stats.hero1_l1;
       
@@ -594,7 +616,7 @@ function loadCustomStats() {
       if(stats.hero3_l1 && document.getElementById('hero3-l1')) document.getElementById('hero3-l1').textContent = stats.hero3_l1;
 
       // Update Pill 1
-      if (document.getElementById('stat1-val')) document.getElementById('stat1-val').textContent = stats.p1_val;
+      if (document.getElementById('stat1-val')) document.getElementById('stat1-val').textContent = stats.p1_val || stats.p1_val;
       if (document.getElementById('stat1-l1')) document.getElementById('stat1-l1').textContent = stats.p1_l1;
       if (document.getElementById('stat1-l2')) document.getElementById('stat1-l2').textContent = stats.p1_l2;
       if (document.getElementById('stat1-badge')) document.getElementById('stat1-badge').textContent = stats.p1_badge;
@@ -611,11 +633,80 @@ function loadCustomStats() {
       if (document.getElementById('stat3-l2')) document.getElementById('stat3-l2').textContent = stats.p3_l2;
       if (document.getElementById('stat3-badge')) document.getElementById('stat3-badge').textContent = stats.p3_badge;
     } catch (e) {
-      console.error("Error loading stats", e);
+      console.error("Error updating stats DOM", e);
+    }
+  }
+}
+
+// Ensure Feedback form submits to PHP
+function initFeedbackModal() {
+  const openBtn = document.getElementById('openFeedbackBtn');
+  const closeBtn = document.getElementById('closeFeedbackBtn');
+  const modal = document.getElementById('feedbackModal');
+  const form = document.getElementById('feedbackForm');
+
+  if (openBtn && closeBtn && modal) {
+    modal.style.display = 'none';
+
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modal.classList.add('is-open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modal.classList.remove('is-open');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('is-open');
+      }
+    });
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const inputs = form.querySelectorAll('input, textarea');
+        const data = {
+          nama: inputs[0].value,
+          email: inputs[1].value,
+          pesan: inputs[2].value
+        };
+
+        try {
+          // Send to PHP API
+          const response = await fetch('api/save_feedback.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          
+          if(response.ok) {
+            showToast('Terima kasih! Masukan Anda telah berhasil dikirim ke database.', 'info');
+          } else {
+            throw new Error('API failed');
+          }
+        } catch(err) {
+          // Fallback if PHP not working
+          console.warn("Fallback to local storage for feedback");
+          let feedbacks = JSON.parse(localStorage.getItem('soto_feedbacks') || '[]');
+          feedbacks.push({...data, tanggal: new Date().toISOString()});
+          localStorage.setItem('soto_feedbacks', JSON.stringify(feedbacks));
+          showToast('Masukan disimpan secara lokal (PHP API tidak ditemukan).', 'info');
+        }
+
+        modal.style.display = 'none';
+        modal.classList.remove('is-open');
+        form.reset();
+      });
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   loadCustomStats();
+  initFeedbackModal();
 });
