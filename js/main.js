@@ -330,7 +330,7 @@ function initServiceModals() {
       icon: 'message-square',
       description: 'Asisten virtual dan Customer Officer responsif BPS Lamongan untuk permintaan tabel cepat, konfirmasi jadwal kunjungan, dan pengaduan.',
       features: [
-        'Respon cepat Senin - Jumat (08.00 - 15.30 WIB)',
+        'Respon cepat Senin - Jumat (07.30 - 16.00 WIB)',
         'Konfirmasi otomatis tabel indikator inflasi & PDRB',
         'Reservasi jadwal konsultasi statistik tatap muka',
         'Informasi syarat & prosedur pengajuan rekomendasi'
