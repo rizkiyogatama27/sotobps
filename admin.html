@@ -354,26 +354,122 @@
 
       <!-- PERMINTAAN DATA SECTION -->
       <div id="section-requests" class="content-section hidden space-y-6">
-        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
-          <div class="w-16 h-16 bg-orange-50 text-[#E34A32] rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="file-text" class="w-8 h-8"></i>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-black/5 shadow-sm">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-orange-50 text-[#E34A32] rounded-full flex items-center justify-center">
+              <i data-lucide="file-text" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#171719]">Permintaan Data</h3>
+              <p class="text-sm text-gray-500">Kelola dan respons permohonan data dari masyarakat atau instansi.</p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-[#171719] mb-2">Daftar Permintaan Data</h3>
-          <p class="text-gray-500 max-w-md mx-auto">Halaman khusus untuk memproses dan merespons antrean permohonan data
-            dari masyarakat atau instansi.</p>
+
+          <div class="overflow-x-auto rounded-xl border border-black/5">
+            <table class="w-full text-left text-sm whitespace-nowrap">
+              <thead class="bg-gray-50 text-gray-600 font-semibold border-b border-black/5">
+                <tr>
+                  <th class="px-6 py-4">Tanggal</th>
+                  <th class="px-6 py-4">Nama Pemohon</th>
+                  <th class="px-6 py-4">Instansi</th>
+                  <th class="px-6 py-4">Topik Data</th>
+                  <th class="px-6 py-4">Status</th>
+                  <th class="px-6 py-4 text-center">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-black/5 text-[#2E3034]">
+                <!-- Mockup Row 1 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">01 Okt 2026</td>
+                  <td class="px-6 py-4 font-semibold">Budi Santoso</td>
+                  <td class="px-6 py-4">Universitas Brawijaya</td>
+                  <td class="px-6 py-4">Data Kemiskinan 2025</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700">Menunggu</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <button class="text-[#0266B3] hover:text-[#014a82] font-semibold text-xs">Proses</button>
+                  </td>
+                </tr>
+                <!-- Mockup Row 2 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4">29 Sep 2026</td>
+                  <td class="px-6 py-4 font-semibold">Siti Aminah</td>
+                  <td class="px-6 py-4">Dinas Pertanian</td>
+                  <td class="px-6 py-4">Luas Panen Padi</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Selesai</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <button class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Detail</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       <!-- PENGGUNA SSO SECTION -->
       <div id="section-users" class="content-section hidden space-y-6">
-        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
-          <div
-            class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="users" class="w-8 h-8"></i>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-black/5 shadow-sm">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-[#171719]">Pengguna SSO</h3>
+                <p class="text-sm text-gray-500">Kelola akun admin dan akses sistem SOTO BPS.</p>
+              </div>
+            </div>
+            <button class="bg-[#009E49] hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-bold transition-colors flex items-center gap-2">
+              <i data-lucide="plus" class="w-4 h-4"></i> Tambah Akun
+            </button>
           </div>
-          <h3 class="text-xl font-bold text-[#171719] mb-2">Manajemen Pengguna</h3>
-          <p class="text-gray-500 max-w-md mx-auto">Kelola akses akun admin dan integrasi sistem SSO BPS di halaman ini.
-          </p>
+
+          <div class="overflow-x-auto rounded-xl border border-black/5">
+            <table class="w-full text-left text-sm whitespace-nowrap">
+              <thead class="bg-gray-50 text-gray-600 font-semibold border-b border-black/5">
+                <tr>
+                  <th class="px-6 py-4">Nama Akun</th>
+                  <th class="px-6 py-4">Email SSO</th>
+                  <th class="px-6 py-4">Peran</th>
+                  <th class="px-6 py-4 text-center">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-black/5 text-[#2E3034]">
+                <!-- Mockup Row 1 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 font-semibold flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#0266B3] flex items-center justify-center text-xs font-bold">A</div>
+                    Admin BPS Lamongan
+                  </td>
+                  <td class="px-6 py-4">admin@bps.go.id</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-[#0266B3]">Super Admin</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <button class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Edit</button>
+                  </td>
+                </tr>
+                <!-- Mockup Row 2 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 font-semibold flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-xs font-bold">S</div>
+                    Staf Pelayanan
+                  </td>
+                  <td class="px-6 py-4">staf.pst@bps.go.id</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-600">Admin PST</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <button class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
