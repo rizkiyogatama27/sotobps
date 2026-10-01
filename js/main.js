@@ -575,3 +575,36 @@ window.handleLogin = function(event) {
   }
 };
 
+// Load custom stats from localStorage for Landing Page
+function loadCustomStats() {
+  const savedData = localStorage.getItem('soto_vital_stats');
+  if (savedData) {
+    try {
+      const stats = JSON.parse(savedData);
+      
+      // Update Pill 1
+      if(document.getElementById('stat1-val')) document.getElementById('stat1-val').textContent = stats.p1_val;
+      if(document.getElementById('stat1-l1')) document.getElementById('stat1-l1').textContent = stats.p1_l1;
+      if(document.getElementById('stat1-l2')) document.getElementById('stat1-l2').textContent = stats.p1_l2;
+      if(document.getElementById('stat1-badge')) document.getElementById('stat1-badge').textContent = stats.p1_badge;
+
+      // Update Pill 2
+      if(document.getElementById('stat2-val')) document.getElementById('stat2-val').textContent = stats.p2_val;
+      if(document.getElementById('stat2-l1')) document.getElementById('stat2-l1').textContent = stats.p2_l1;
+      if(document.getElementById('stat2-l2')) document.getElementById('stat2-l2').textContent = stats.p2_l2;
+      if(document.getElementById('stat2-badge')) document.getElementById('stat2-badge').textContent = stats.p2_badge;
+
+      // Update Pill 3
+      if(document.getElementById('stat3-val')) document.getElementById('stat3-val').textContent = stats.p3_val;
+      if(document.getElementById('stat3-l1')) document.getElementById('stat3-l1').textContent = stats.p3_l1;
+      if(document.getElementById('stat3-l2')) document.getElementById('stat3-l2').textContent = stats.p3_l2;
+      if(document.getElementById('stat3-badge')) document.getElementById('stat3-badge').textContent = stats.p3_badge;
+    } catch(e) {
+      console.error("Error loading stats", e);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadCustomStats();
+});

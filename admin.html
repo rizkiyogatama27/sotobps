@@ -195,15 +195,94 @@
 
       <!-- DATA STATISTIK SECTION -->
       <div id="section-data" class="content-section hidden space-y-6">
-        <div class="bg-white p-8 rounded-3xl border border-black/5 shadow-sm text-center">
-          <div class="w-16 h-16 bg-blue-50 text-[#0266B3] rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="database" class="w-8 h-8"></i>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-black/5 shadow-sm">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-blue-50 text-[#0266B3] rounded-full flex items-center justify-center">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#171719]">Manajemen Statistik Vital</h3>
+              <p class="text-sm text-gray-500">Ubah data statistik yang tampil di halaman depan (Landing Page).</p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-[#171719] mb-2">Manajemen Data Statistik</h3>
-          <p class="text-gray-500 mb-6 max-w-md mx-auto">Di halaman ini nantinya admin dapat menambah, mengubah, atau menghapus dataset statistik yang ditampilkan di *landing page*.</p>
-          <button class="bg-[#0266B3] text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-[#025696] transition-colors" onclick="showAdminToast('Fitur unggah data belum aktif.')">
-            + Tambah Dataset Baru
-          </button>
+          
+          <form id="statsForm" class="space-y-8">
+            <!-- Pill 1 -->
+            <div class="p-5 border border-black/10 rounded-2xl bg-gray-50/50 space-y-4">
+              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span class="bg-[#171719] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> Indikator Kiri</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Nilai Utama</label>
+                  <input type="text" id="p1_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="1.38">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Satuan (Label 1)</label>
+                  <input type="text" id="p1_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Juta Jiwa">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Keterangan (Label 2)</label>
+                  <input type="text" id="p1_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Jumlah Penduduk Terdata">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Badge Sumber</label>
+                  <input type="text" id="p1_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="SP2020 Sensus">
+                </div>
+              </div>
+            </div>
+
+            <!-- Pill 2 -->
+            <div class="p-5 border border-black/10 rounded-2xl bg-gray-50/50 space-y-4">
+              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span class="bg-[#E34A32] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> Indikator Tengah</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Nilai Utama</label>
+                  <input type="text" id="p2_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="4.68%">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Satuan (Label 1)</label>
+                  <input type="text" id="p2_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Laju PDRB">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Keterangan (Label 2)</label>
+                  <input type="text" id="p2_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Pertumbuhan Ekonomi Positif">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Badge Sumber</label>
+                  <input type="text" id="p2_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="ADHK Kontinu">
+                </div>
+              </div>
+            </div>
+
+            <!-- Pill 3 -->
+            <div class="p-5 border border-black/10 rounded-2xl bg-gray-50/50 space-y-4">
+              <h4 class="font-bold text-[#171719] flex items-center gap-2"><span class="bg-[#171719] text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span> Indikator Kanan</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Nilai Utama</label>
+                  <input type="text" id="p3_val" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="100%">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Satuan (Label 1)</label>
+                  <input type="text" id="p3_l1" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Terverifikasi">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Keterangan (Label 2)</label>
+                  <input type="text" id="p3_l2" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="Metadata Standar SDI">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-600 mb-1">Badge Sumber</label>
+                  <input type="text" id="p3_badge" class="w-full px-4 py-2 border border-gray-200 rounded-xl text-sm" value="ISO/SNI 2026">
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end border-t border-black/10 pt-5">
+              <button type="submit" class="bg-[#0266B3] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#025696] transition-colors flex items-center gap-2">
+                <i data-lucide="save" class="w-4 h-4"></i>
+                Simpan Perubahan
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -329,6 +408,54 @@
         toast.classList.add('opacity-0', 'translate-y-5');
         setTimeout(() => toast.remove(), 300);
       }, 3000);
+    }
+    // Form handling for Data Statistik
+    const statsForm = document.getElementById('statsForm');
+    if(statsForm) {
+      // Pre-fill form from localStorage if exists
+      const savedStats = localStorage.getItem('soto_vital_stats');
+      if (savedStats) {
+        try {
+          const stats = JSON.parse(savedStats);
+          document.getElementById('p1_val').value = stats.p1_val;
+          document.getElementById('p1_l1').value = stats.p1_l1;
+          document.getElementById('p1_l2').value = stats.p1_l2;
+          document.getElementById('p1_badge').value = stats.p1_badge;
+          
+          document.getElementById('p2_val').value = stats.p2_val;
+          document.getElementById('p2_l1').value = stats.p2_l1;
+          document.getElementById('p2_l2').value = stats.p2_l2;
+          document.getElementById('p2_badge').value = stats.p2_badge;
+          
+          document.getElementById('p3_val').value = stats.p3_val;
+          document.getElementById('p3_l1').value = stats.p3_l1;
+          document.getElementById('p3_l2').value = stats.p3_l2;
+          document.getElementById('p3_badge').value = stats.p3_badge;
+        } catch(e) {}
+      }
+
+      statsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = {
+          p1_val: document.getElementById('p1_val').value,
+          p1_l1: document.getElementById('p1_l1').value,
+          p1_l2: document.getElementById('p1_l2').value,
+          p1_badge: document.getElementById('p1_badge').value,
+          
+          p2_val: document.getElementById('p2_val').value,
+          p2_l1: document.getElementById('p2_l1').value,
+          p2_l2: document.getElementById('p2_l2').value,
+          p2_badge: document.getElementById('p2_badge').value,
+          
+          p3_val: document.getElementById('p3_val').value,
+          p3_l1: document.getElementById('p3_l1').value,
+          p3_l2: document.getElementById('p3_l2').value,
+          p3_badge: document.getElementById('p3_badge').value,
+        };
+
+        localStorage.setItem('soto_vital_stats', JSON.stringify(data));
+        showAdminToast('Data statistik berhasil diperbarui. Silakan cek halaman utama.', 'info');
+      });
     }
   </script>
 </body>
