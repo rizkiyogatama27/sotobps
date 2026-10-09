@@ -60,9 +60,9 @@
 
         <!-- Layer 3: Nav (Sticky) -->
         <header id="mainNav" class="sticky top-3 sm:top-5 z-50 px-4 sm:px-8 transition-all duration-300">
-          <div class="max-w-6xl mx-auto p-[2px] rounded-full animate-gradient-border shadow-md">
+          <div class="max-w-6xl mx-auto w-full">
             <nav
-              class="w-full backdrop-blur-2xl bg-white/95 rounded-full px-5 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 relative border border-[#0266B3]/15 shadow-sm"
+              class="w-full backdrop-blur-2xl bg-white/95 rounded-2xl px-5 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 relative border border-gray-200 shadow-sm"
               id="navContainer">
               <!-- Brand Logo: Official BPS Image Asset -->
               <a href="#hero" class="flex items-center gap-3 group">
@@ -88,6 +88,8 @@
               <div class="hidden md:flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#2E3034]">
                 <a href="#hero" class="nav-link px-3.5 py-1.5 text-[#2E3034] hover:text-[#0266B3]">Beranda</a>
                 <a href="#layanan" class="nav-link px-3.5 py-1.5 text-[#2E3034] hover:text-[#0266B3]">PST Center</a>
+                <a href="#pustaka" class="nav-link px-3.5 py-1.5 text-[#2E3034] hover:text-[#0266B3]">Pustaka</a>
+                <a href="#konsultasi" class="nav-link px-3.5 py-1.5 text-[#2E3034] hover:text-[#0266B3]">Konsultasi</a>
                 <a href="#indikator" class="nav-link px-3.5 py-1.5 text-[#2E3034] hover:text-[#0266B3]">SOTO 3524</a>
                 <a href="#qna" class="nav-link px-3.5 py-1.5 text-[#2E3034] hover:text-[#0266B3]">QnA</a>
               </div>
@@ -113,6 +115,8 @@
             class="hidden md:hidden max-w-6xl mx-auto mt-2 p-5 bg-white/95 backdrop-blur-xl border border-white rounded-3xl shadow-xl flex flex-col gap-3 text-sm font-medium text-[#2E3034]">
             <a href="#hero" class="py-1 hover:text-[#E34A32]">Beranda</a>
             <a href="#layanan" class="py-1 hover:text-[#E34A32]">PST Center</a>
+            <a href="#pustaka" class="py-1 hover:text-[#E34A32]">Pustaka</a>
+            <a href="#konsultasi" class="py-1 hover:text-[#E34A32]">Konsultasi</a>
             <a href="#indikator" class="py-1 hover:text-[#E34A32]">SOTO 3524</a>
             <a href="#qna" class="py-1 hover:text-[#E34A32]">QnA / Pertanyaan Umum</a>
             <button id="mobileAdminLoginBtn"
@@ -446,7 +450,7 @@
 
             <!-- Card 1 -->
             <div data-rise
-              class="bg-white rounded-3xl p-7 border border-white/80 card-shadow-lift hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+              class="hidden bg-white rounded-3xl p-7 border border-white/80 card-shadow-lift hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer">
               <div>
                 <div class="flex items-center justify-between mb-6">
                   <div
@@ -485,18 +489,18 @@
                     <i data-lucide="file-check-2"
                       class="w-7 h-7 relative z-10 transition-transform group-hover:scale-110"></i>
                   </div>
-                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-[#55575c]">ROMANTIK</span>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-[#55575c]">Rekomendasi Statistik</span>
                 </div>
                 <h3 class="text-xl font-bold text-[#2E3034] mb-2.5 group-hover:text-[#0266B3] transition-colors">
-                  Rekomendasi Statistik (PSS)</h3>
+                  Rekomendasi Statistik</h3>
                 <p class="text-sm text-[#55575c] leading-relaxed mb-6">
-                  Pendampingan OPD Pemerintah Kabupaten Lamongan dalam penerbitan surat rekomendasi survei kompilasi
-                  administrasi sektoral.
+                  Pendampingan OPD Pemerintah Kabupaten Lamongan dalam penerbitan surat rekomendasi kegiatan statistik
+                  dan kompilasi administrasi sektoral.
                 </p>
               </div>
               <div
                 class="pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#171719]">
-                <span>Evaluasi EPSS & Perpres 39</span>
+                <span>Metodologi, EPSS & Perpres 39</span>
                 <i data-lucide="arrow-right"
                   class="w-4 h-4 text-[#E34A32] group-hover:translate-x-1.5 transition-transform"></i>
               </div>
@@ -514,18 +518,18 @@
                     <i data-lucide="message-square"
                       class="w-7 h-7 relative z-10 transition-transform group-hover:scale-110"></i>
                   </div>
-                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-[#55575c]">WhatsApp</span>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-[#55575c]">Konsultasi Statistik</span>
                 </div>
-                <h3 class="text-xl font-bold text-[#2E3034] mb-2.5 group-hover:text-emerald-600 transition-colors">HALO
-                  PST Lamongan</h3>
+                <h3 class="text-xl font-bold text-[#2E3034] mb-2.5 group-hover:text-emerald-600 transition-colors">
+                  Konsultasi Statistik</h3>
                 <p class="text-sm text-[#55575c] leading-relaxed mb-6">
-                  Layanan asisten virtual dan customer officer responsif untuk permintaan tabel instan, konfirmasi
-                  jadwal, dan aduan pelayanan publik.
+                  Bimbingan metodologi, permintaan data, dan tanya jawab statistik melalui meja PST, Halo PST, atau
+                  WhatsApp CANTIK.
                 </p>
               </div>
               <div
                 class="pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#171719]">
-                <span>Live Chat Senin - Jumat</span>
+                <span>Tatap muka & kanal digital</span>
                 <i data-lucide="arrow-right"
                   class="w-4 h-4 text-[#E34A32] group-hover:translate-x-1.5 transition-transform"></i>
               </div>
@@ -543,18 +547,18 @@
                     <i data-lucide="book-open"
                       class="w-7 h-7 relative z-10 transition-transform group-hover:scale-110"></i>
                   </div>
-                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-[#55575c]">E-Library</span>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-[#55575c]">Perpustakaan</span>
                 </div>
                 <h3 class="text-xl font-bold text-[#2E3034] mb-2.5 group-hover:text-amber-600 transition-colors">
-                  Lamongan Dalam Angka</h3>
+                  Perpustakaan Statistik</h3>
                 <p class="text-sm text-[#55575c] leading-relaxed mb-6">
-                  Unduh gratis seluruh edisi tahunan publikasi statistik daerah, profil kemiskinan, PDRB, indikator
-                  pertanian, serta sensus penduduk.
+                  Akses koleksi publikasi resmi, arsip data historis, dan literatur statistik BPS dalam format cetak
+                  maupun digital.
                 </p>
               </div>
               <div
                 class="pt-4 border-t border-black/5 flex items-center justify-between text-xs font-semibold text-[#171719]">
-                <span>Format PDF & XLSX Resmi</span>
+                <span>Koleksi cetak & e-book</span>
                 <i data-lucide="arrow-right"
                   class="w-4 h-4 text-[#E34A32] group-hover:translate-x-1.5 transition-transform"></i>
               </div>
@@ -562,7 +566,7 @@
 
             <!-- Card 5 -->
             <div data-rise
-              class="bg-white rounded-3xl p-7 border border-white/80 card-shadow-lift hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+              class="hidden bg-white rounded-3xl p-7 border border-white/80 card-shadow-lift hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer">
               <div>
                 <div class="flex items-center justify-between mb-6">
                   <div
@@ -591,7 +595,7 @@
 
             <!-- Card 6 -->
             <div data-rise
-              class="bg-white rounded-3xl p-7 border border-white/80 card-shadow-lift hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+              class="hidden bg-white rounded-3xl p-7 border border-white/80 card-shadow-lift hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer">
               <div>
                 <div class="flex items-center justify-between mb-6">
                   <div
@@ -620,6 +624,205 @@
 
           </div>
 
+        </div>
+      </section>
+
+      <!-- SECTION 2B: LIBRARY -->
+      <section id="pustaka" class="py-20 sm:py-28 px-4 sm:px-8 bg-[#F4F5F5] border-t border-black/[0.06]">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start mb-12">
+            <div>
+              <span data-rise class="text-xs font-bold uppercase tracking-wider text-[#E34A32] mb-3 block">Pustaka
+                BPS 3524</span>
+              <h2 data-rise class="text-3xl sm:text-5xl font-bold text-[#171719] tracking-heading mb-5">
+                Akses Publikasi & Koleksi Data <span class="font-serif-accent font-normal text-[#E34A32]">Statistik</span>
+              </h2>
+              <p data-rise class="text-sm sm:text-base text-[#55575c] leading-relaxed max-w-lg">
+                Temukan publikasi resmi BPS melalui katalog digital atau datang ke ruang baca PST untuk membaca koleksi
+                cetak dan dokumen statistik fisik.
+              </p>
+            </div>
+
+            <div data-rise class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-[#171719] text-white rounded-3xl p-6 min-h-[190px] flex flex-col justify-between">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#F6A08E]">Layanan Offline</span>
+                  <i data-lucide="building-2" class="w-5 h-5 text-[#F6A08E]"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Ruang Baca PST</h3>
+                  <p class="text-sm text-white/65 leading-relaxed">Baca koleksi buku, publikasi cetak, dan arsip statistik di ruang layanan BPS Lamongan.</p>
+                  <button data-library-action="reserve" class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#F6A08E] hover:text-white transition-colors">
+                    Reservasi kunjungan <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="bg-[#EAF3F8] rounded-3xl p-6 min-h-[190px] flex flex-col justify-between border border-[#0266B3]/10">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#0266B3]">Layanan Online</span>
+                  <i data-lucide="monitor-down" class="w-5 h-5 text-[#0266B3]"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-[#171719] mb-2">Katalog Digital</h3>
+                  <p class="text-sm text-[#55575c] leading-relaxed">Cari dan unduh publikasi berkala dalam format PDF atau e-book.</p>
+                  <span class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#0266B3]">Arsip resmi BPS Lamongan <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-black/5 p-5 sm:p-7 card-shadow-lift">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-7">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-[#55575c] mb-2">Katalog publikasi digital</p>
+                <h3 class="text-2xl font-bold text-[#171719]">Cari arsip dan data historis</h3>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                <label class="relative flex-1 lg:w-72">
+                  <span class="sr-only">Cari publikasi</span>
+                  <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                  <input id="librarySearch" type="search" placeholder="Cari judul publikasi..." class="w-full pl-9 pr-4 py-3 bg-[#F4F5F5] border border-black/5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0266B3]/20 focus:border-[#0266B3]">
+                </label>
+                <label>
+                  <span class="sr-only">Filter tahun terbit</span>
+                  <select id="libraryYear" class="w-full sm:w-auto py-3 px-4 bg-[#F4F5F5] border border-black/5 rounded-xl text-sm text-[#2E3034] focus:outline-none focus:ring-2 focus:ring-[#0266B3]/20">
+                    <option value="all">Semua tahun</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div id="libraryGrid" class="grid md:grid-cols-2 gap-4">
+              <article data-publication data-year="2026" data-title="Lamongan dalam Angka 2026" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                  <div class="w-11 h-11 rounded-xl bg-[#E34A32]/10 text-[#E34A32] flex items-center justify-center flex-shrink-0"><i data-lucide="book-marked" class="w-5 h-5"></i></div>
+                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2026</span>
+                </div>
+                <h4 class="font-bold text-[#171719] mb-2">Lamongan dalam Angka 2026</h4>
+                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Kompilasi indikator sosial, ekonomi, dan pemerintahan Kabupaten Lamongan.</p>
+                <div class="flex items-center gap-3 text-xs font-bold">
+                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
+                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
+                </div>
+              </article>
+              <article data-publication data-year="2025" data-title="Indikator Kesejahteraan Rakyat 2025" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                  <div class="w-11 h-11 rounded-xl bg-[#0266B3]/10 text-[#0266B3] flex items-center justify-center flex-shrink-0"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
+                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2025</span>
+                </div>
+                <h4 class="font-bold text-[#171719] mb-2">Indikator Kesejahteraan Rakyat 2025</h4>
+                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Gambaran kesejahteraan penduduk dari sisi pendidikan, kesehatan, dan ekonomi.</p>
+                <div class="flex items-center gap-3 text-xs font-bold">
+                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
+                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
+                </div>
+              </article>
+              <article data-publication data-year="2024" data-title="Produk Domestik Regional Bruto 2024" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                  <div class="w-11 h-11 rounded-xl bg-[#009E49]/10 text-[#009E49] flex items-center justify-center flex-shrink-0"><i data-lucide="landmark" class="w-5 h-5"></i></div>
+                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2024</span>
+                </div>
+                <h4 class="font-bold text-[#171719] mb-2">Produk Domestik Regional Bruto 2024</h4>
+                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Perkembangan nilai tambah ekonomi sektoral dan pertumbuhan ekonomi daerah.</p>
+                <div class="flex items-center gap-3 text-xs font-bold">
+                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
+                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
+                </div>
+              </article>
+              <article data-publication data-year="2023" data-title="Statistik Pertanian Lamongan 2023" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                  <div class="w-11 h-11 rounded-xl bg-[#F6A08E]/25 text-[#E34A32] flex items-center justify-center flex-shrink-0"><i data-lucide="sprout" class="w-5 h-5"></i></div>
+                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2023</span>
+                </div>
+                <h4 class="font-bold text-[#171719] mb-2">Statistik Pertanian Lamongan 2023</h4>
+                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Arsip produksi tanaman pangan, hortikultura, dan peternakan Kabupaten Lamongan.</p>
+                <div class="flex items-center gap-3 text-xs font-bold">
+                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
+                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
+                </div>
+              </article>
+            </div>
+            <p id="libraryEmpty" class="hidden text-center text-sm text-[#55575c] py-10">Publikasi yang dicari belum ditemukan di katalog.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2C: CONSULTATION -->
+      <section id="konsultasi" class="py-20 sm:py-28 px-4 sm:px-8 bg-[#ECEEED] border-t border-black/[0.06]">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+            <div class="max-w-2xl">
+              <span data-rise class="text-xs font-bold uppercase tracking-wider text-[#E34A32] mb-3 block">Konsultasi
+                BPS 3524</span>
+              <h2 data-rise class="text-3xl sm:text-5xl font-bold text-[#171719] tracking-heading mb-5">
+                Bimbingan & Permintaan Data <span class="font-serif-accent font-normal text-[#E34A32]">Statistik</span>
+              </h2>
+              <p data-rise class="text-sm sm:text-base text-[#55575c] leading-relaxed">
+                Diskusikan kebutuhan data, metodologi, dan cara membaca indikator bersama tim statistisi BPS melalui
+                meja PST atau kanal digital yang sesuai.
+              </p>
+            </div>
+            <div data-rise class="flex items-center gap-3 text-xs font-semibold text-[#55575c] bg-white px-4 py-3 rounded-2xl border border-black/5">
+              <i data-lucide="clock-3" class="w-4 h-4 text-[#E34A32]"></i>
+              <span>Senin - Jumat, 07.30 - 16.00 WIB</span>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-5">
+            <article data-rise class="bg-[#171719] text-white rounded-3xl p-7 min-h-[330px] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-8">
+                  <div class="w-12 h-12 rounded-2xl bg-[#F6A08E]/15 text-[#F6A08E] flex items-center justify-center"><i data-lucide="users-round" class="w-6 h-6"></i></div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#F6A08E]">Offline</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Meja Layanan PST</h3>
+                <p class="text-sm text-white/65 leading-relaxed">Datang langsung ke kantor BPS Lamongan untuk berdiskusi dengan petugas atau statistisi secara tatap muka.</p>
+              </div>
+              <button data-consultation-action="appointment" class="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#F6A08E] text-[#171719] text-sm font-bold hover:bg-white transition-colors">
+                Buat janji kunjungan <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+              </button>
+            </article>
+
+            <article data-rise class="bg-white rounded-3xl p-7 min-h-[330px] flex flex-col justify-between border border-black/5 card-shadow-lift">
+              <div>
+                <div class="flex items-center justify-between mb-8">
+                  <div class="w-12 h-12 rounded-2xl bg-[#0266B3]/10 text-[#0266B3] flex items-center justify-center"><i data-lucide="clipboard-pen-line" class="w-6 h-6"></i></div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#0266B3]">Online</span>
+                </div>
+                <h3 class="text-2xl font-bold text-[#171719] mb-3">Halo PST</h3>
+                <p class="text-sm text-[#55575c] leading-relaxed">Ajukan tiket konsultasi terstruktur dan permohonan data melalui portal resmi Halo PST.</p>
+              </div>
+              <a href="https://halopst.bps.go.id" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#0266B3] text-white text-sm font-bold hover:bg-[#005BAC] transition-colors">
+                Buka Halo PST <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </article>
+
+            <article data-rise class="bg-[#EAF3F8] rounded-3xl p-7 min-h-[330px] flex flex-col justify-between border border-[#0266B3]/10">
+              <div>
+                <div class="flex items-center justify-between mb-8">
+                  <div class="w-12 h-12 rounded-2xl bg-white text-[#009E49] flex items-center justify-center"><i data-lucide="messages-square" class="w-6 h-6"></i></div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#009E49]">Chat cepat</span>
+                </div>
+                <h3 class="text-2xl font-bold text-[#171719] mb-3">WhatsApp & CANTIK</h3>
+                <p class="text-sm text-[#55575c] leading-relaxed">Tanya jawab cepat seputar data strategis dan indikator daerah melalui asisten virtual interaktif.</p>
+              </div>
+              <a href="https://wa.me/6285111383218" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#009E49] text-white text-sm font-bold hover:bg-[#007F3A] transition-colors">
+                Mulai chat WhatsApp <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </a>
+            </article>
+          </div>
+
+          <div data-rise class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-5 py-4 bg-white/70 border border-black/5 rounded-2xl">
+            <div class="flex items-start gap-3">
+              <i data-lucide="info" class="w-4 h-4 text-[#0266B3] mt-0.5 flex-shrink-0"></i>
+              <p class="text-xs text-[#55575c] leading-relaxed">Siapkan topik, periode, dan wilayah data yang dibutuhkan agar petugas dapat memberi arahan lebih tepat.</p>
+            </div>
+            <a href="#qna" class="inline-flex items-center gap-2 text-xs font-bold text-[#0266B3] hover:text-[#171719] whitespace-nowrap">Lihat pertanyaan umum <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
         </div>
       </section>
 
