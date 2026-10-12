@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initThreeMesh();
   initMobileMenu();
   initToastNotification();
+  initLibraryCatalog();
+  initConsultationActions();
   initServiceModals();
 });
 
@@ -290,6 +292,52 @@ function showToast(message, duration = 3500) {
   }, duration);
 }
 
+function initLibraryCatalog() {
+  const searchInput = document.getElementById('librarySearch');
+  const yearSelect = document.getElementById('libraryYear');
+  const publications = Array.from(document.querySelectorAll('[data-publication]'));
+  const emptyState = document.getElementById('libraryEmpty');
+  if (!searchInput || !yearSelect || !publications.length || !emptyState) return;
+
+  function filterPublications() {
+    const query = searchInput.value.trim().toLowerCase();
+    const year = yearSelect.value;
+    let visibleCount = 0;
+
+    publications.forEach((publication) => {
+      const matchesQuery = publication.dataset.title.toLowerCase().includes(query);
+      const matchesYear = year === 'all' || publication.dataset.year === year;
+      const isVisible = matchesQuery && matchesYear;
+      publication.classList.toggle('hidden', !isVisible);
+      if (isVisible) visibleCount += 1;
+    });
+
+    emptyState.classList.toggle('hidden', visibleCount !== 0);
+  }
+
+  searchInput.addEventListener('input', filterPublications);
+  yearSelect.addEventListener('change', filterPublications);
+
+  document.querySelectorAll('[data-library-action]').forEach((action) => {
+    action.addEventListener('click', () => {
+      const messages = {
+        read: 'Publikasi siap dibaca online melalui katalog digital BPS.',
+        download: 'Tautan unduh publikasi akan tersedia setelah katalog tersambung ke arsip BPS.',
+        reserve: 'Reservasi kunjungan PST akan dibuka melalui konfirmasi petugas layanan.'
+      };
+      showToast(messages[action.dataset.libraryAction]);
+    });
+  });
+}
+
+function initConsultationActions() {
+  document.querySelectorAll('[data-consultation-action]').forEach((action) => {
+    action.addEventListener('click', () => {
+      showToast('Permintaan janji kunjungan dicatat. Petugas PST akan mengonfirmasi jadwal Anda.');
+    });
+  });
+}
+
 // Global scope window.showToast for form triggers
 window.showToast = showToast;
 
@@ -324,19 +372,19 @@ function initServiceModals() {
       link: 'https://romantik.bps.go.id',
       linkText: 'Buka Portal ROMANTIK'
     },
-    'halo-pst': {
-      title: 'HALO PST WhatsApp Lamongan',
-      category: 'WhatsApp Official',
+    'konsultasi': {
+      title: 'Konsultasi Statistik',
+      category: 'Tatap Muka & Digital',
       icon: 'message-square',
-      description: 'Asisten virtual dan Customer Officer responsif BPS Lamongan untuk permintaan tabel cepat, konfirmasi jadwal kunjungan, dan pengaduan.',
+      description: 'Layanan bimbingan metodologi dan permohonan data statistik melalui meja PST, portal Halo PST, serta WhatsApp CANTIK.',
       features: [
-        'Respon cepat Senin - Jumat (07.30 - 16.00 WIB)',
-        'Konfirmasi otomatis tabel indikator inflasi & PDRB',
-        'Reservasi jadwal konsultasi statistik tatap muka',
-        'Informasi syarat & prosedur pengajuan rekomendasi'
+        'Diskusi teknis bersama petugas/statistisi PST',
+        'Tiket konsultasi dan permohonan data melalui Halo PST',
+        'Tanya jawab cepat indikator strategis via WhatsApp CANTIK',
+        'Bantuan menyiapkan kebutuhan data dan periode observasi'
       ],
-      link: 'https://wa.me/6285111383218',
-      linkText: 'Chat via WhatsApp PST'
+      link: 'https://halopst.bps.go.id',
+      linkText: 'Buka Halo PST'
     },
     'elibrary': {
       title: 'E-Library & Publikasi Daerah',
@@ -432,8 +480,8 @@ function initServiceModals() {
   });
 
   // Attach click events to service cards
-  const serviceCards = document.querySelectorAll('#layanan .grid > div');
-  const serviceKeys = ['pst', 'romantik', 'halo-pst', 'elibrary', 'zi-pengaduan', 'api-soto'];
+  const serviceCards = document.querySelectorAll('#layanan .grid > div:not(.hidden)');
+  const serviceKeys = ['romantik', 'konsultasi', 'elibrary'];
 
   serviceCards.forEach((card, index) => {
     const key = serviceKeys[index];
