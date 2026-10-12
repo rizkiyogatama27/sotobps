@@ -762,7 +762,39 @@ function initFeedbackModal() {
   }
 }
 
+// Newsletter Subscription Handler
+function initNewsletterForm() {
+  const form = document.getElementById('footerForm');
+  const input = document.getElementById('newsletterEmail');
+  if (!form || !input) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = input.value.trim();
+    if (!email) return;
+
+    try {
+      const subscribers = JSON.parse(localStorage.getItem('soto_newsletter_subscribers') || '[]');
+      if (subscribers.some(sub => sub.email.toLowerCase() === email.toLowerCase())) {
+        showToast('Email instansi ini sudah terdaftar sebelumnya.');
+      } else {
+        subscribers.push({
+          email: email,
+          tanggal: new Date().toISOString()
+        });
+        localStorage.setItem('soto_newsletter_subscribers', JSON.stringify(subscribers));
+        showToast(`Terima kasih! ${email} berhasil terdaftar untuk buletin BPS.`);
+      }
+    } catch (err) {
+      showToast('Terima kasih! Layanan notifikasi BPS 3524 telah terdaftar.');
+    }
+
+    form.reset();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadCustomStats();
   initFeedbackModal();
+  initNewsletterForm();
 });

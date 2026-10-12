@@ -1536,9 +1536,8 @@
 
           <!-- Form: Inline Email Input + Black Button -->
           <form id="footerForm" data-rise
-            onsubmit="event.preventDefault(); showToast('Terima kasih! Layanan notifikasi BPS 3524 telah terdaftar.'); this.reset();"
             class="max-w-md mx-auto flex flex-col sm:flex-row items-center gap-2 bg-white p-2 rounded-full border border-black/10 inner-inset-glow card-shadow-lift mb-16">
-            <input type="email" required placeholder="nama@instansi.go.id"
+            <input type="email" id="newsletterEmail" required placeholder="nama@instansi.go.id"
               class="w-full px-5 py-3 text-sm text-[#2E3034] bg-transparent focus:outline-none placeholder:text-gray-400">
             <button type="submit"
               class="w-full sm:w-auto px-7 py-3 rounded-full bg-[#171719] text-white text-xs font-semibold hover:bg-[#E34A32] transition-colors flex-shrink-0 flex items-center justify-center gap-2">
