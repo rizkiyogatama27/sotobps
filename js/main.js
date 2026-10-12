@@ -611,6 +611,14 @@ window.handleLogin = function (event) {
 
   // Test credentials: admin@bps.go.id / admin123
   if (email === 'admin@bps.go.id' && password === 'admin123') {
+    // Set authenticated session token
+    sessionStorage.setItem('soto_admin_logged_in', 'true');
+    sessionStorage.setItem('soto_admin_user', JSON.stringify({
+      email: email,
+      role: 'Administrator',
+      loginTime: new Date().toISOString()
+    }));
+
     showToast('Login SSO Admin berhasil. Selamat datang!');
     document.getElementById('adminLoginModal').classList.remove('is-open');
 

@@ -67,7 +67,7 @@
     </nav>
 
     <div class="p-4 border-t border-black/5">
-      <a href="index.html"
+      <a href="index.html" id="logoutBtn"
         class="flex items-center gap-3 px-3 py-2.5 text-red-600 hover:bg-red-50 rounded-xl text-sm font-semibold transition-colors">
         <i data-lucide="log-out" class="w-4 h-4"></i>
         Keluar
@@ -551,8 +551,26 @@
   <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
 
   <script>
+    // AUTH GUARD: Cek apakah user telah login
+    (function checkAuthGuard() {
+      const isLoggedIn = sessionStorage.getItem('soto_admin_logged_in');
+      if (isLoggedIn !== 'true') {
+        alert('Akses Terbatas: Silakan login terlebih dahulu melalui portal SOTO 3524.');
+        window.location.replace('index.html');
+      }
+    })();
+
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Logout handler
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', (e) => {
+        sessionStorage.removeItem('soto_admin_logged_in');
+        sessionStorage.removeItem('soto_admin_user');
+      });
+    }
 
     // Elements
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
