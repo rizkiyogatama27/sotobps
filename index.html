@@ -47,9 +47,6 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Three.js (r128) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
   <!-- Modular Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -65,8 +62,21 @@
       <!-- SECTION 1: HERO SHELL -->
       <section id="hero" class="relative min-h-[92svh] lg:min-h-[100svh] flex flex-col justify-between overflow-hidden">
 
-        <!-- Layer 0: Three.js Canvas -->
-        <canvas id="meshGL" class="absolute inset-0 w-full h-full pointer-events-none opacity-70 z-0"></canvas>
+        <!-- Layer 0: Official BPS Lamongan Team Background Image with Soft Vignette & Brand Glow -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+          <img src="assets/images/hero-bg.webp" 
+            alt="Keluarga Besar BPS Kabupaten Lamongan"
+            id="heroBgImage"
+            class="w-full h-full object-cover object-[center_28%] scale-105 transition-transform duration-700 ease-out filter contrast-[1.05] brightness-[1.02] will-change-transform">
+          <!-- Translucent scrim for optimal typography readability -->
+          <div class="absolute inset-0 bg-[#F4F5F5]/75 backdrop-blur-[1.5px]"></div>
+          <!-- Radial focus mask: softer in center for text, clearer toward periphery -->
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(244,245,245,0.82)_0%,rgba(244,245,245,0.72)_55%,#F4F5F5_100%)]"></div>
+          <!-- BPS Brand Color Wash Overlay (Blue & Orange) -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#0266B3]/[0.08] via-transparent to-[#E34A32]/[0.10] mix-blend-multiply"></div>
+          <!-- Bottom seamless fade into next section -->
+          <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F4F5F5] to-transparent"></div>
+        </div>
 
         <!-- Layer 1: Bloom Div with Parallax Shift -->
         <div id="bloom"

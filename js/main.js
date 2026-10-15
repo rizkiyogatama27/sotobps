@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavScroll();
   initNavScrollSpy();
   initHeroDrift();
-  initThreeMesh();
   initMobileMenu();
   initToastNotification();
   initLibraryCatalog();
@@ -53,6 +52,14 @@ function initVariableFontProximity() {
       const shiftX = (mouseX / window.innerWidth - 0.5) * 40;
       const shiftY = (mouseY / window.innerHeight - 0.5) * 40;
       bloom.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+    }
+
+    // Parallax Hero Background Image Shift (Silky Smooth, Zero GPU cost)
+    const heroBg = document.getElementById('heroBgImage');
+    if (heroBg) {
+      const bgShiftX = (mouseX / window.innerWidth - 0.5) * -16;
+      const bgShiftY = (mouseY / window.innerHeight - 0.5) * -10;
+      heroBg.style.transform = `scale(1.05) translate(${bgShiftX}px, ${bgShiftY}px)`;
     }
   });
 }
@@ -100,81 +107,6 @@ function wrapTextNodesWithWchar(node, list) {
     }
     Array.from(node.childNodes).forEach(child => wrapTextNodesWithWchar(child, list));
   }
-}
-
-// 3. Three.js Canvas (#meshGL): Faceted IcosahedronGeometry(3, 0)
-function initThreeMesh() {
-  const canvas = document.getElementById('meshGL');
-  if (!canvas || typeof THREE === 'undefined') return;
-
-  const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    alpha: true,
-    antialias: true
-  });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-  camera.position.z = 10;
-
-  // Geometry: 0xE34A32, roughness 0.3, metalness 0.6, flatShading: true
-  const geometry = new THREE.IcosahedronGeometry(3, 0);
-  const material = new THREE.MeshStandardMaterial({
-    color: 0xE34A32,
-    roughness: 0.3,
-    metalness: 0.6,
-    flatShading: true
-  });
-  const mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
-
-  // Lighting
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-  scene.add(ambientLight);
-
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
-  dirLight.position.set(5, 10, 7);
-  scene.add(dirLight);
-
-  const pointLight = new THREE.PointLight(0xF05A3C, 1.5, 50);
-  pointLight.position.set(-5, -5, 5);
-  scene.add(pointLight);
-
-  function updateSizeAndPosition() {
-    if (!canvas.parentElement) return;
-    const width = canvas.parentElement.clientWidth;
-    const height = canvas.parentElement.clientHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-
-    // Mesh positioning: x=4.5 for desktop (>= 1024px) and x=0 for mobile
-    if (window.innerWidth >= 1024) {
-      mesh.position.x = 4.5;
-      mesh.scale.set(1.15, 1.15, 1.15);
-    } else {
-      mesh.position.x = 0;
-      mesh.scale.set(0.85, 0.85, 0.85);
-    }
-  }
-
-  window.addEventListener('resize', updateSizeAndPosition);
-  updateSizeAndPosition();
-
-  // Float animation: Math.sin(t * 1.2) * 0.3
-  let clock = new THREE.Clock();
-  function animate() {
-    requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
-
-    mesh.rotation.y = t * 0.35;
-    mesh.rotation.x = t * 0.2;
-    mesh.position.y = Math.sin(t * 1.2) * 0.3;
-
-    renderer.render(scene, camera);
-  }
-  animate();
 }
 
 // 4. Hero Drift: Three-tile stack with translateY oscillation using Math.sin(t + i * 2) * 6
