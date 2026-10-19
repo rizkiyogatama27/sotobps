@@ -192,10 +192,10 @@
             </div>
 
             <!-- Right Column: Interactive Scene Badge (5 Columns) -->
-            <div data-rise class="lg:col-span-5 flex flex-col justify-end items-center lg:items-end w-full">
-              <!-- Floating Glass Badge: Zona Integritas & Office Identity -->
-              <div class="relative bg-white/90 backdrop-blur-md border border-white/80 p-5 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] max-w-sm w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
-                <div class="flex items-center justify-between gap-3 mb-2.5">
+            <div data-rise class="lg:col-span-5 flex flex-col justify-center items-center lg:items-end w-full">
+              <!-- Floating Glass Badge: Zona Integritas & Office Identity with Balanced Info -->
+              <div class="relative bg-white/80 backdrop-blur-md border border-white/80 p-6 sm:p-7 rounded-3xl shadow-[0_20px_45px_-12px_rgba(0,0,0,0.12)] max-w-md w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+                <div class="flex items-center justify-between gap-3 mb-3">
                   <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-700 text-[11px] font-bold">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span>ZONA INTEGRITAS WBK</span>
@@ -203,16 +203,34 @@
                   <span class="text-[11px] font-bold text-[#0266B3] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100/60">Kanal 3524</span>
                 </div>
 
-                <h4 class="text-sm sm:text-base font-bold text-[#171719] mb-1">
+                <h4 class="text-base sm:text-lg font-bold text-[#171719] mb-1.5">
                   Keluarga Besar BPS Kab. Lamongan
                 </h4>
                 <p class="text-xs text-[#55575c] leading-relaxed mb-4">
                   Gedung PST &bull; Jl. Veteran No. 12 Lamongan. Mengawal akurasi data statistik dengan integritas tinggi.
                 </p>
 
+                <!-- Service Quick Specs / Operational Hours (Balanced Height & High Utility) -->
+                <div class="bg-gray-50/80 rounded-2xl p-3 border border-gray-100/80 mb-4 space-y-2 text-xs">
+                  <div class="flex items-center justify-between text-[#55575c]">
+                    <span class="flex items-center gap-1.5 font-medium">
+                      <i data-lucide="clock" class="w-3.5 h-3.5 text-[#0266B3]"></i>
+                      <span>Jam Layanan PST:</span>
+                    </span>
+                    <span class="font-semibold text-[#171719]">Senin – Kamis 08.00–15.30 WIB</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[#55575c]">
+                    <span class="flex items-center gap-1.5 font-medium">
+                      <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                      <span>Tarif Layanan:</span>
+                    </span>
+                    <span class="font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Rp 0 (Gratis)</span>
+                  </div>
+                </div>
+
                 <!-- Action Button to View Full High-Res Team Photo in Lightbox Modal -->
                 <button type="button" id="openTeamPhotoBtn"
-                  class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0266B3]/10 hover:bg-[#0266B3] text-[#0266B3] hover:text-white text-xs font-semibold transition-all duration-200 group-hover:bg-[#0266B3] group-hover:text-white cursor-pointer shadow-2xs">
+                  class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0266B3] hover:bg-[#005BAC] text-white text-xs font-semibold transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-[#0266B3]/25 cursor-pointer">
                   <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
                   <span>Lihat Foto Gedung &amp; Tim BPS</span>
                 </button>
