@@ -48,7 +48,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Modular Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 
 <body class="antialiased selection:bg-[#E34A32] selection:text-white">
@@ -62,33 +62,24 @@
       <!-- SECTION 1: HERO SHELL -->
       <section id="hero" class="relative min-h-[92svh] lg:min-h-[100svh] flex flex-col justify-between overflow-hidden">
 
-        <!-- Layer 0: Official BPS Lamongan Team Background Image with Soft Vignette & Brand Glow -->
-        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <!-- Layer 0: Panoramic Photographic Background with Precise Clarity & Asymmetric Scrim -->
+        <div class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
+          <!-- Real High-Res BPS Lamongan Office & Team Panorama (Enhanced Vividness, Sharp & Clear) -->
           <img src="assets/images/hero-bg.webp" 
-            alt="Keluarga Besar BPS Kabupaten Lamongan"
             id="heroBgImage"
-            class="w-full h-full object-cover object-[center_28%] scale-105 transition-transform duration-700 ease-out filter contrast-[1.05] brightness-[1.02] will-change-transform">
-          <!-- Translucent scrim for optimal typography readability -->
-          <div class="absolute inset-0 bg-[#F4F5F5]/75 backdrop-blur-[1.5px]"></div>
-          <!-- Radial focus mask: softer in center for text, clearer toward periphery -->
-          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(244,245,245,0.82)_0%,rgba(244,245,245,0.72)_55%,#F4F5F5_100%)]"></div>
-          <!-- BPS Brand Color Wash Overlay (Blue & Orange) -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#0266B3]/[0.08] via-transparent to-[#E34A32]/[0.10] mix-blend-multiply"></div>
-          <!-- Bottom seamless fade into next section -->
-          <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F4F5F5] to-transparent"></div>
-        </div>
+            alt="Keluarga Besar Badan Pusat Statistik Kabupaten Lamongan di Depan Gedung PST" 
+            class="w-full h-full object-cover object-[center_35%] lg:object-[72%_32%] scale-[1.05] contrast-[1.08] saturate-[1.15] brightness-[1.02] transition-transform duration-700 ease-out">
 
-        <!-- Layer 1: Bloom Div with Parallax Shift -->
-        <div id="bloom"
-          class="hero-bloom-glow absolute -right-40 top-0 w-[500px] h-[500px] sm:w-[720px] sm:h-[720px] rounded-full pointer-events-none blur-3xl z-[1] transition-transform duration-300 ease-out">
-        </div>
+          <!-- Layer 0a: Targeted Left-Side Gradient (Clean readability for text, completely open & crystal clear on the right) -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#F4F5F5] from-10% via-[#F4F5F5]/90 via-35% to-transparent to-55%"></div>
+          
+          <!-- Layer 0b: Subtle Bleeds (Much lighter so photo details, uniforms, and building stay visible) -->
+          <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#F4F5F5] via-[#F4F5F5]/30 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F5] via-[#F4F5F5]/50 to-transparent"></div>
 
-        <!-- Layer 2: Atmosphere Gradients -->
-        <div
-          class="hero-atmosphere-left absolute -left-32 top-1/4 w-[400px] h-[400px] rounded-full pointer-events-none blur-3xl z-[2]">
-        </div>
-        <div
-          class="hero-atmosphere-bottom absolute left-1/3 -bottom-24 w-[500px] h-[400px] rounded-full pointer-events-none blur-3xl z-[2]">
+          <!-- Subtle Brand Atmospheric Glows -->
+          <div class="absolute -left-20 top-1/4 w-96 h-96 rounded-full bg-[#0266B3]/[0.05] blur-3xl"></div>
+          <div class="absolute right-10 top-12 w-80 h-80 rounded-full bg-[#E34A32]/[0.04] blur-3xl"></div>
         </div>
 
         <!-- Layer 3: Nav (Sticky) -->
@@ -160,60 +151,84 @@
           </div>
         </header>
 
-        <!-- Layer 4: Hero Content -->
-        <div
-          class="relative z-10 flex-1 flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-10 pb-16 max-w-5xl mx-auto">
+        <!-- Layer 4: Cinematic Hero Content (Left: High-Impact Typography & CTAs, Right: Interactive Scene Badge) -->
+        <div class="relative z-10 flex-1 max-w-6xl mx-auto w-full px-4 sm:px-8 py-8 sm:py-12 flex flex-col justify-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          <!-- Badge Sub-header -->
-          <div data-rise
-            class="no-wchar inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/90 backdrop-blur-md border border-white shadow-sm mb-6 max-w-[95%] mx-auto">
-            <div class="inline-flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#E34A32] animate-pulse flex-shrink-0"></span>
-              <strong class="font-bold text-[#E34A32] text-xs sm:text-sm">SOTO</strong>
-              <span class="text-xs text-gray-400 font-normal">—</span>
+            <!-- Left Column: Typography & CTAs with Soft Glass Backdrop for Perfect Contrast -->
+            <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left p-4 sm:p-6 lg:p-8 rounded-3xl lg:bg-white/45 lg:backdrop-blur-sm lg:border lg:border-white/60 lg:shadow-xs">
+              <!-- Badge Sub-header (R-02: No em-dash) -->
+              <div data-rise
+                class="no-wchar inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/95 border border-black/5 shadow-2xs mb-5">
+                <div class="inline-flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#E34A32] animate-pulse flex-shrink-0"></span>
+                  <strong class="font-bold text-[#E34A32] text-xs sm:text-sm">SOTO</strong>
+                  <span class="text-xs text-gray-400 font-normal">:</span>
+                </div>
+                <span class="text-xs font-medium text-[#2E3034]">Sistem Observasi &amp; Transparansi Online</span>
+                <span class="text-xs text-gray-300 hidden sm:inline">•</span>
+                <span class="text-[10px] sm:text-xs font-semibold text-[#0266B3] bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100/60">BPS Kab. Lamongan</span>
+              </div>
+
+              <!-- Hero Headline -->
+              <h1 data-rise
+                class="text-3xl sm:text-5xl lg:text-[48px] xl:text-[56px] font-bold text-[#171719] leading-[1.12] tracking-heading mb-4">
+                <span class="block">Diseminasi Data Statistik</span>
+                <span class="relative inline-block">
+                  <span class="font-serif-accent font-normal text-[#E34A32]">Megilan</span> Terbuka, Cepat &amp; Akurat
+                </span>
+              </h1>
+
+              <p data-rise
+                class="text-sm sm:text-base text-[#55575c] max-w-xl leading-relaxed mb-8 font-normal">
+                Platform modern observasi indikator makro, layanan rekomendasi survei sektoral, dan meta-data statistik
+                Kabupaten Lamongan yang terintegrasi standar Satu Data Indonesia.
+              </p>
+
+              <!-- CTA Cluster -->
+              <div data-rise class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                <a href="#layanan"
+                  class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#171719] text-white font-medium hover:bg-[#E34A32] transition-all duration-200 shadow-md hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E34A32]">
+                  <span>Eksplorasi Layanan PST</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#pustaka"
+                  class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#2E3034] font-medium border border-black/10 hover:border-black/20 inner-inset-glow transition-all duration-200 hover:-translate-y-0.5 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0266B3]">
+                  <i data-lucide="book-open" class="w-4 h-4 text-[#0266B3]"></i>
+                  <span>Katalog Publikasi Data</span>
+                </a>
+              </div>
             </div>
-            <span class="text-xs font-medium text-[#2E3034] text-center">Sistem Observasi & Transparansi Online</span>
-            <span class="text-xs text-gray-300 hidden sm:inline">•</span>
-            <span
-              class="text-[10px] sm:text-xs font-semibold text-[#0266B3] bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100/60">BPS
-              Kab. Lamongan</span>
+
+            <!-- Right Column: Interactive Scene Badge (5 Columns) -->
+            <div data-rise class="lg:col-span-5 flex flex-col justify-end items-center lg:items-end w-full">
+              <!-- Floating Glass Badge: Zona Integritas & Office Identity -->
+              <div class="relative bg-white/90 backdrop-blur-md border border-white/80 p-5 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] max-w-sm w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+                <div class="flex items-center justify-between gap-3 mb-2.5">
+                  <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-700 text-[11px] font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>ZONA INTEGRITAS WBK</span>
+                  </div>
+                  <span class="text-[11px] font-bold text-[#0266B3] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100/60">Kanal 3524</span>
+                </div>
+
+                <h4 class="text-sm sm:text-base font-bold text-[#171719] mb-1">
+                  Keluarga Besar BPS Kab. Lamongan
+                </h4>
+                <p class="text-xs text-[#55575c] leading-relaxed mb-4">
+                  Gedung PST &bull; Jl. Veteran No. 12 Lamongan. Mengawal akurasi data statistik dengan integritas tinggi.
+                </p>
+
+                <!-- Action Button to View Full High-Res Team Photo in Lightbox Modal -->
+                <button type="button" id="openTeamPhotoBtn"
+                  class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#0266B3]/10 hover:bg-[#0266B3] text-[#0266B3] hover:text-white text-xs font-semibold transition-all duration-200 group-hover:bg-[#0266B3] group-hover:text-white cursor-pointer shadow-2xs">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                  <span>Lihat Foto Gedung &amp; Tim BPS</span>
+                </button>
+              </div>
+            </div>
+
           </div>
-
-          <!-- Hero Headline with .font-serif-accent and .wchar variable font weight -->
-          <h1 data-rise
-            class="text-4xl sm:text-6xl lg:text-7xl xl:text-[82px] font-bold text-[#171719] leading-[1.08] tracking-heading mb-6 relative">
-            <span class="block">Diseminasi Data Statistik</span>
-            <span class="relative inline-block">
-              <span class="font-serif-accent font-normal text-[#E34A32]">Megilan</span> Terbuka, Cepat & Akurat
-              <!-- Gradient Pill hidden on mobile, visible on lg absolute to the right -->
-              <span
-                class="no-wchar hidden lg:inline-flex items-center gap-1.5 absolute -right-36 top-3 text-[11px] font-semibold tracking-normal text-white px-3.5 py-1 rounded-full bg-gradient-to-br from-[#F05A3C] to-[#C93A24] shadow-md -rotate-3 select-none">
-                <i data-lucide="zap" class="w-3 h-3 flex-shrink-0"></i>
-                <span class="no-wchar tracking-normal whitespace-nowrap">Real-Time SDI</span>
-              </span>
-            </span>
-          </h1>
-
-          <p data-rise
-            class="text-base sm:text-lg lg:text-xl text-[#55575c] max-w-2xl leading-relaxed mb-10 font-normal">
-            Platform modern observasi indikator makro, layanan rekomendasi survei sektoral, dan meta-data statistik
-            Kabupaten Lamongan yang terintegrasi standar Satu Data Indonesia.
-          </p>
-
-          <!-- CTA Cluster -->
-          <div data-rise class="flex flex-wrap items-center justify-center gap-4">
-            <a href="#layanan"
-              class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#171719] text-white font-medium hover:bg-[#E34A32] transition-all duration-200 shadow-[0_12px_24px_-8px_rgba(23,23,25,0.35)] hover:-translate-y-0.5">
-              <span>Eksplorasi Layanan PST</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <a href="#pustaka"
-              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#2E3034] font-medium border border-black/5 hover:border-black/15 inner-inset-glow transition-all duration-200 hover:-translate-y-0.5 shadow-sm">
-              <i data-lucide="book-open" class="w-4 h-4 text-[#0266B3]"></i>
-              <span>Katalog Publikasi Data</span>
-            </a>
-          </div>
-
         </div>
 
         <!-- Layer 5: Hero Drift Tiles (Floating UI with translateY oscillation) -->
@@ -1547,8 +1562,41 @@
     </div>
   </div>
 
+  <!-- Modal: Foto Panorama Tim BPS Kabupaten Lamongan (Accessible Lightbox) -->
+  <div id="teamPhotoModal" class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="teamPhotoTitle">
+    <div class="modal-content bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-white/80 relative text-[#2E3034]">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-gray-50/80">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <div>
+            <h3 id="teamPhotoTitle" class="text-base sm:text-lg font-bold text-[#171719]">Keluarga Besar BPS Kabupaten Lamongan</h3>
+            <p class="text-[11px] text-[#55575c]">Gedung Pelayanan Statistik Terpadu (PST) &bull; Jl. Veteran No. 12 Lamongan</p>
+          </div>
+        </div>
+        <button id="closeTeamPhotoBtn" type="button" class="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center transition-colors cursor-pointer" aria-label="Tutup Dialog">
+          <i data-lucide="x" class="w-4 h-4 text-[#2E3034]"></i>
+        </button>
+      </div>
+
+      <!-- Photo Display -->
+      <div class="relative bg-black aspect-[16/10] sm:aspect-[16/9] overflow-hidden flex items-center justify-center">
+        <img src="assets/images/hero-bg.webp" alt="Keluarga Besar BPS Kabupaten Lamongan" class="w-full h-full object-contain">
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3.5 bg-white flex flex-wrap items-center justify-between gap-3 text-xs text-[#55575c]">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold text-[11px]">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>Zona Integritas Menuju WBK / WBBM</span>
+        </div>
+        <span class="font-medium text-[#171719]">Kanal 3524 &bull; Satu Data Indonesia</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Modular Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 
 </html>

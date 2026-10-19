@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLibraryCatalog();
   initConsultationActions();
   initServiceModals();
+  initTeamPhotoModal();
 });
 
 // 2. Custom "wchar" variable font weight interaction (600 base to 900 on mouse proximity < 200px)
@@ -528,10 +529,45 @@ function initQnaAccordion() {
   });
 }
 
+// 13. Team Photo Lightbox Modal Handler (Accessible & Keyboard Controllable)
+function initTeamPhotoModal() {
+  const openBtn = document.getElementById('openTeamPhotoBtn');
+  const modal = document.getElementById('teamPhotoModal');
+  const closeBtn = document.getElementById('closeTeamPhotoBtn');
+
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add('is-open');
+    if (closeBtn) closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (openBtn) openBtn.focus();
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+}
+
 // Call new initializers on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
   initAdminLoginModal();
   initQnaAccordion();
+  initTeamPhotoModal();
 });
 
 // Admin Login Handler
