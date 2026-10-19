@@ -140,14 +140,14 @@ function initNavScroll() {
   });
 }
 
-// 6. Active Nav Link ScrollSpy
+// 6. Active Nav Link ScrollSpy with Smooth Pill Highlight
 function initNavScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('#mainNav .nav-link, #mobileMenu a');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPosition = window.scrollY + 120;
+  function updateActiveLink() {
+    let current = 'hero';
+    const scrollPosition = window.scrollY + 140;
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -158,12 +158,17 @@ function initNavScrollSpy() {
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('active', 'text-[#E34A32]');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active', 'text-[#E34A32]');
+      const targetId = link.getAttribute('href');
+      if (targetId === `#${current}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
-  });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink(); // Run on initial load
 }
 
 // 7. IntersectionObserver for data-rise & data-reveal
