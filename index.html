@@ -62,24 +62,17 @@
       <!-- SECTION 1: HERO SHELL -->
       <section id="hero" class="relative min-h-[92svh] lg:min-h-[100svh] flex flex-col justify-between overflow-hidden">
 
-        <!-- Layer 0: Panoramic Photographic Background with Precise Clarity & Asymmetric Scrim -->
+        <!-- Layer 0: Panoramic Photographic Background with Full Team Visibility -->
         <div class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
-          <!-- Real High-Res BPS Lamongan Office & Team Panorama (Enhanced Vividness, Sharp & Clear) -->
+          <!-- Real High-Res BPS Lamongan Office & Team Panorama (Centered so entire team on left and right is visible) -->
           <img src="assets/images/hero-bg.webp" 
             id="heroBgImage"
             alt="Keluarga Besar Badan Pusat Statistik Kabupaten Lamongan di Depan Gedung PST" 
-            class="w-full h-full object-cover object-[center_35%] lg:object-[72%_32%] scale-[1.05] contrast-[1.08] saturate-[1.15] brightness-[1.02] transition-transform duration-700 ease-out">
+            class="w-full h-full object-cover object-[center_38%] scale-[1.02] contrast-[1.06] saturate-[1.12] brightness-[1.01] transition-transform duration-700 ease-out">
 
-          <!-- Layer 0a: Targeted Left-Side Gradient (Clean readability for text, completely open & crystal clear on the right) -->
-          <div class="absolute inset-0 bg-gradient-to-r from-[#F4F5F5] from-10% via-[#F4F5F5]/90 via-35% to-transparent to-55%"></div>
-          
-          <!-- Layer 0b: Subtle Bleeds (Much lighter so photo details, uniforms, and building stay visible) -->
-          <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#F4F5F5] via-[#F4F5F5]/30 to-transparent"></div>
-          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F5] via-[#F4F5F5]/50 to-transparent"></div>
-
-          <!-- Subtle Brand Atmospheric Glows -->
-          <div class="absolute -left-20 top-1/4 w-96 h-96 rounded-full bg-[#0266B3]/[0.05] blur-3xl"></div>
-          <div class="absolute right-10 top-12 w-80 h-80 rounded-full bg-[#E34A32]/[0.04] blur-3xl"></div>
+          <!-- Ultra-light scrim ONLY at the very top and very bottom for navigation & metric tiles contrast -->
+          <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#F4F5F5]/80 via-[#F4F5F5]/20 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#F4F5F5]/85 via-[#F4F5F5]/30 to-transparent"></div>
         </div>
 
         <!-- Layer 3: Nav (Sticky) -->
