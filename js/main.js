@@ -621,19 +621,55 @@ function initAdminLoginModal() {
   const mobileAdminBtn = document.getElementById('mobileAdminLoginBtn');
   const modal = document.getElementById('adminLoginModal');
   const closeBtn = document.getElementById('closeAdminLoginBtn');
+  const togglePassBtn = document.getElementById('togglePasswordBtn');
+  const passInput = document.getElementById('loginPassword');
+  const toggleIcon = document.getElementById('togglePasswordIcon');
+  const fillDemoBtn = document.getElementById('fillDemoLoginBtn');
 
   if (!modal) return;
 
   function openModal() {
     modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
   }
+
   function closeModal() {
     modal.classList.remove('is-open');
+    document.body.style.overflow = '';
   }
 
   if (adminBtn) adminBtn.addEventListener('click', openModal);
   if (mobileAdminBtn) mobileAdminBtn.addEventListener('click', openModal);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // Toggle Password Visibility
+  if (togglePassBtn && passInput) {
+    togglePassBtn.addEventListener('click', () => {
+      const isPassword = passInput.type === 'password';
+      passInput.type = isPassword ? 'text' : 'password';
+      if (toggleIcon) {
+        toggleIcon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          window.lucide.createIcons();
+        }
+      }
+    });
+  }
+
+  // Quick Autofill Demo Credentials
+  if (fillDemoBtn) {
+    fillDemoBtn.addEventListener('click', () => {
+      const emailInput = document.getElementById('loginEmail');
+      if (emailInput && passInput) {
+        emailInput.value = 'admin@bps.go.id';
+        passInput.value = 'admin123';
+        showToast('Kredensial akun penguji terisi otomatis.');
+      }
+    });
+  }
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
@@ -704,8 +740,20 @@ document.addEventListener("DOMContentLoaded", () => {
 window.handleLogin = function (event) {
   event.preventDefault();
 
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+  const submitBtn = document.getElementById('submitLoginBtn');
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <span>Memverifikasi SSO...</span>
+    `;
+  }
 
   // Test credentials: admin@bps.go.id / admin123
   if (email === 'admin@bps.go.id' && password === 'admin123') {
@@ -713,19 +761,31 @@ window.handleLogin = function (event) {
     sessionStorage.setItem('soto_admin_logged_in', 'true');
     sessionStorage.setItem('soto_admin_user', JSON.stringify({
       email: email,
-      role: 'Administrator',
+      role: 'Administrator Satker 3524',
       loginTime: new Date().toISOString()
     }));
 
-    showToast('Login SSO Admin berhasil. Selamat datang!');
+    showToast('Login SSO Admin berhasil. Mengalihkan ke Dashboard...');
     document.getElementById('adminLoginModal').classList.remove('is-open');
 
     // Redirect to admin dashboard after short delay
     setTimeout(() => {
       window.location.href = 'admin.html';
-    }, 1000);
+    }, 800);
   } else {
-    showToast('Login gagal. Email atau kata sandi salah.', 'error');
+    setTimeout(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          <span>Masuk Panel Admin SOTO</span>
+        `;
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          window.lucide.createIcons();
+        }
+      }
+      showToast('Login gagal. Email atau kata sandi salah.', 'error');
+    }, 500);
   }
 };
 
