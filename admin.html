@@ -609,8 +609,8 @@
             </div>
 
             <div class="flex justify-end border-t border-black/10 pt-5">
-              <button type="button" onclick="showAdminToast('Pengaturan berhasil disimpan!', 'info')"
-                class="bg-[#0266B3] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#025696] transition-colors flex items-center gap-2">
+              <button type="submit"
+                class="bg-[#0266B3] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#025696] transition-colors flex items-center gap-2 cursor-pointer shadow-sm">
                 <i data-lucide="save" class="w-4 h-4"></i>
                 Simpan Pengaturan
               </button>
@@ -829,6 +829,32 @@
 
         localStorage.setItem('soto_vital_stats', JSON.stringify(data));
         showAdminToast('Data statistik berhasil diperbarui. Silakan cek halaman utama.', 'info');
+      });
+    }
+
+    // Settings Form Handling
+    const settingsForm = document.getElementById('settingsForm');
+    if (settingsForm) {
+      // Pre-fill settings
+      try {
+        const savedSettings = localStorage.getItem('soto_site_settings');
+        if (savedSettings) {
+          const s = JSON.parse(savedSettings);
+          if (s.jam && document.getElementById('set_jam')) document.getElementById('set_jam').value = s.jam;
+          if (s.wa && document.getElementById('set_wa')) document.getElementById('set_wa').value = s.wa;
+          if (s.alamat && document.getElementById('set_alamat')) document.getElementById('set_alamat').value = s.alamat;
+        }
+      } catch (e) { }
+
+      settingsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const settingsData = {
+          jam: document.getElementById('set_jam')?.value.trim() || 'Senin - Jumat | 07.30 - 16.00 WIB',
+          wa: document.getElementById('set_wa')?.value.trim() || '0851-1138-3218',
+          alamat: document.getElementById('set_alamat')?.value.trim() || 'Jl. Veteran No. 70, Lamongan'
+        };
+        localStorage.setItem('soto_site_settings', JSON.stringify(settingsData));
+        showAdminToast('Pengaturan website & kontak berhasil disimpan dan disinkronkan ke halaman utama!', 'info');
       });
     }
 

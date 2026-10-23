@@ -869,6 +869,28 @@ async function loadCustomStats() {
       console.error("Error updating stats DOM", e);
     }
   }
+
+  // Also sync site settings (Hours, WhatsApp, Office Address) from admin
+  try {
+    const savedSettings = localStorage.getItem('soto_site_settings');
+    if (savedSettings) {
+      const set = JSON.parse(savedSettings);
+      if (set.jam && document.getElementById('satkerHoursText')) {
+        document.getElementById('satkerHoursText').textContent = set.jam;
+      }
+      if (set.wa && document.getElementById('satkerWaNumber')) {
+        document.getElementById('satkerWaNumber').textContent = set.wa;
+        const cleanWa = set.wa.replace(/[^0-9]/g, '');
+        const waLink = document.getElementById('satkerWaLink');
+        if (waLink) waLink.href = cleanWa.startsWith('0') ? `https://wa.me/62${cleanWa.slice(1)}` : `https://wa.me/${cleanWa}`;
+      }
+      if (set.alamat && document.getElementById('satkerAddressTitle')) {
+        document.getElementById('satkerAddressTitle').textContent = set.alamat.split(',')[0];
+      }
+    }
+  } catch (err) {
+    console.error("Error updating site settings DOM", err);
+  }
 }
 
 // Ensure Feedback form submits to PHP
