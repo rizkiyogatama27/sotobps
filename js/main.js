@@ -386,6 +386,25 @@ function initConsultationActions() {
       const name = document.getElementById('consultName')?.value.trim() || 'Pengunjung';
       const role = document.getElementById('consultRole')?.value || 'Umum';
       const date = document.getElementById('consultDate')?.value || '';
+      const topic = document.getElementById('consultTopic')?.value.trim() || 'Konsultasi Data Umum';
+
+      // Save to localStorage so admin.html receives real live requests
+      try {
+        const existing = JSON.parse(localStorage.getItem('soto_consultation_requests') || '[]');
+        const newRequest = {
+          id: 'REQ-' + Date.now().toString().slice(-4),
+          nama: name,
+          instansi: role,
+          topik: topic,
+          tanggal: date,
+          status: 'Menunggu',
+          createdAt: new Date().toISOString()
+        };
+        existing.unshift(newRequest);
+        localStorage.setItem('soto_consultation_requests', JSON.stringify(existing));
+      } catch (err) {
+        console.error('Failed saving request to localStorage', err);
+      }
 
       closeModal();
       form.reset();

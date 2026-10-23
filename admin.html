@@ -272,34 +272,8 @@
                   <th class="px-5 py-3">Tanggal</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-black/5 text-[#2E3034]">
-                <tr class="hover:bg-gray-50 transition-colors">
-                  <td class="px-5 py-4 font-medium">Budi Santoso</td>
-                  <td class="px-5 py-4 text-gray-500">Pemkab Lamongan</td>
-                  <td class="px-5 py-4">Data Pertanian 2025</td>
-                  <td class="px-5 py-4"><span
-                      class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-100">Diproses</span>
-                  </td>
-                  <td class="px-5 py-4 text-gray-500 text-xs">Hari ini, 09:30</td>
-                </tr>
-                <tr class="hover:bg-gray-50 transition-colors">
-                  <td class="px-5 py-4 font-medium">Siti Aminah</td>
-                  <td class="px-5 py-4 text-gray-500">Mahasiswa</td>
-                  <td class="px-5 py-4">IPM Kecamatan</td>
-                  <td class="px-5 py-4"><span
-                      class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span>
-                  </td>
-                  <td class="px-5 py-4 text-gray-500 text-xs">Kemarin, 14:15</td>
-                </tr>
-                <tr class="hover:bg-gray-50 transition-colors">
-                  <td class="px-5 py-4 font-medium">Ahmad Fauzi</td>
-                  <td class="px-5 py-4 text-gray-500">Swasta / Peneliti</td>
-                  <td class="px-5 py-4">Inflasi Tahunan</td>
-                  <td class="px-5 py-4"><span
-                      class="inline-flex px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">Selesai</span>
-                  </td>
-                  <td class="px-5 py-4 text-gray-500 text-xs">30 Sep 2026</td>
-                </tr>
+              <tbody id="dashboardRecentTableBody" class="divide-y divide-black/5 text-[#2E3034]">
+                <!-- Dynamic Content via renderRequests() -->
               </tbody>
             </table>
           </div>
@@ -474,44 +448,16 @@
             <table class="w-full text-left text-sm whitespace-nowrap">
               <thead class="bg-gray-50 text-gray-600 font-semibold border-b border-black/5">
                 <tr>
-                  <th class="px-6 py-4">Tanggal</th>
+                  <th class="px-6 py-4">ID & Tanggal</th>
                   <th class="px-6 py-4">Nama Pemohon</th>
                   <th class="px-6 py-4">Instansi</th>
-                  <th class="px-6 py-4">Topik Data</th>
+                  <th class="px-6 py-4">Topik Permohonan</th>
                   <th class="px-6 py-4">Status</th>
-                  <th class="px-6 py-4 text-center">Aksi</th>
+                  <th class="px-6 py-4 text-center">Tindakan Petugas</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-black/5 text-[#2E3034]">
-                <!-- Mockup Row 1 -->
-                <tr class="hover:bg-gray-50 transition-colors">
-                  <td class="px-6 py-4">01 Okt 2026</td>
-                  <td class="px-6 py-4 font-semibold">Budi Santoso</td>
-                  <td class="px-6 py-4">Universitas Brawijaya</td>
-                  <td class="px-6 py-4">Data Kemiskinan 2025</td>
-                  <td class="px-6 py-4">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700">Menunggu</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <button onclick="showAdminToast('Membuka halaman proses permintaan...', 'info')"
-                      class="text-[#0266B3] hover:text-[#014a82] font-semibold text-xs">Proses</button>
-                  </td>
-                </tr>
-                <!-- Mockup Row 2 -->
-                <tr class="hover:bg-gray-50 transition-colors">
-                  <td class="px-6 py-4">29 Sep 2026</td>
-                  <td class="px-6 py-4 font-semibold">Siti Aminah</td>
-                  <td class="px-6 py-4">Dinas Pertanian</td>
-                  <td class="px-6 py-4">Luas Panen Padi</td>
-                  <td class="px-6 py-4">
-                    <span
-                      class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Selesai</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <button onclick="showAdminToast('Membuka detail permintaan...', 'info')"
-                      class="text-gray-400 hover:text-gray-600 font-semibold text-xs">Detail</button>
-                  </td>
-                </tr>
+              <tbody id="requestsTableBody" class="divide-y divide-black/5 text-[#2E3034]">
+                <!-- Populated dynamically by renderRequests() -->
               </tbody>
             </table>
           </div>
@@ -923,18 +869,152 @@
       }
     }
 
-    renderSubscribers();
-
-    const clearSubscribersBtn = document.getElementById('clearSubscribersBtn');
-    if (clearSubscribersBtn) {
-      clearSubscribersBtn.addEventListener('click', () => {
-        if (confirm('Apakah Anda yakin ingin menghapus semua data pendaftar buletin?')) {
-          localStorage.removeItem('soto_newsletter_subscribers');
-          renderSubscribers();
-          showAdminToast('Data pendaftar berhasil dibersihkan.', 'info');
+    // --- MANAJEMEN PERMINTAAN DATA & KONSULTASI PST (LIVE INTEGRATION) ---
+    function getStoredRequests() {
+      const defaultRequests = [
+        {
+          id: 'REQ-1021',
+          nama: 'Budi Santoso',
+          instansi: 'Instansi Pemerintah / OPD (Bappeda)',
+          topik: 'Data Pertanian Lamongan 2024 & PDRB',
+          tanggal: '2026-10-22',
+          status: 'Diproses',
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 'REQ-1020',
+          nama: 'Siti Aminah',
+          instansi: 'Mahasiswa / Peneliti',
+          topik: 'Indikator Kesejahteraan Rakyat Lamongan',
+          tanggal: '2026-10-21',
+          status: 'Selesai',
+          createdAt: new Date(Date.now() - 86400000).toISOString()
+        },
+        {
+          id: 'REQ-1019',
+          nama: 'Ahmad Fauzi',
+          instansi: 'Perusahaan Swasta / Bisnis',
+          topik: 'Inflasi Bulanan dan Data Harga Konsumen',
+          tanggal: '2026-10-18',
+          status: 'Selesai',
+          createdAt: new Date(Date.now() - 172800000).toISOString()
         }
-      });
+      ];
+
+      try {
+        const stored = localStorage.getItem('soto_consultation_requests');
+        if (!stored) {
+          localStorage.setItem('soto_consultation_requests', JSON.stringify(defaultRequests));
+          return defaultRequests;
+        }
+        return JSON.parse(stored);
+      } catch (e) {
+        return defaultRequests;
+      }
     }
+
+    function renderRequests() {
+      const requests = getStoredRequests();
+      const mainTbody = document.getElementById('requestsTableBody');
+      const recentTbody = document.getElementById('dashboardRecentTableBody');
+
+      // Status badge generator helper
+      function getBadge(status) {
+        if (status === 'Selesai') {
+          return '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center gap-1 w-max"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Selesai</span>';
+        } else if (status === 'Diproses') {
+          return '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-[#0266B3] border border-blue-100 flex items-center gap-1 w-max"><span class="w-1.5 h-1.5 rounded-full bg-[#0266B3]"></span>Diproses</span>';
+        }
+        return '<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-100 flex items-center gap-1 w-max"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>Menunggu</span>';
+      }
+
+      // 1. Render Requests Section Table
+      if (mainTbody) {
+        if (requests.length === 0) {
+          mainTbody.innerHTML = '<tr><td colspan="6" class="px-6 py-6 text-center text-gray-400 text-xs">Belum ada permohonan konsultasi yang masuk.</td></tr>';
+        } else {
+          mainTbody.innerHTML = requests.map((item, idx) => `
+            <tr class="hover:bg-gray-50/70 transition-colors">
+              <td class="px-6 py-4">
+                <span class="font-mono text-xs font-bold text-[#0266B3] block">${item.id || ('REQ-' + (idx+1))}</span>
+                <span class="text-[11px] text-gray-400">${item.tanggal || '-'}</span>
+              </td>
+              <td class="px-6 py-4 font-bold text-[#171719]">${item.nama}</td>
+              <td class="px-6 py-4 text-xs text-gray-600">${item.instansi}</td>
+              <td class="px-6 py-4 text-xs text-[#2E3034] max-w-xs truncate" title="${item.topik}">${item.topik}</td>
+              <td class="px-6 py-4">${getBadge(item.status)}</td>
+              <td class="px-6 py-4 text-center">
+                <div class="inline-flex items-center gap-1.5">
+                  <button onclick="updateRequestStatus('${item.id}', 'Diproses')" class="px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#0266B3] text-[11px] font-bold transition-colors cursor-pointer" title="Ubah status ke Diproses">
+                    Proses
+                  </button>
+                  <button onclick="updateRequestStatus('${item.id}', 'Selesai')" class="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-[11px] font-bold transition-colors cursor-pointer" title="Selesaikan permohonan">
+                    Selesai
+                  </button>
+                  <button onclick="deleteRequest('${item.id}')" class="p-1 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors cursor-pointer" title="Hapus catatan">
+                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
+      }
+
+      // 2. Render Dashboard Overview Table (First 4 items)
+      if (recentTbody) {
+        if (requests.length === 0) {
+          recentTbody.innerHTML = '<tr><td colspan="5" class="px-5 py-5 text-center text-gray-400 text-xs">Belum ada aktivitas permohonan terbaru.</td></tr>';
+        } else {
+          recentTbody.innerHTML = requests.slice(0, 4).map(item => `
+            <tr class="hover:bg-gray-50/70 transition-colors">
+              <td class="px-5 py-4 font-bold text-[#171719] text-xs">${item.nama}</td>
+              <td class="px-5 py-4 text-xs text-gray-500">${item.instansi}</td>
+              <td class="px-5 py-4 text-xs text-[#2E3034] max-w-xs truncate">${item.topik}</td>
+              <td class="px-5 py-4">${getBadge(item.status)}</td>
+              <td class="px-5 py-4 text-gray-400 text-xs">${item.tanggal || '-'}</td>
+            </tr>
+          `).join('');
+        }
+      }
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    // Global Action Handlers for Requests
+    window.updateRequestStatus = function(reqId, newStatus) {
+      try {
+        const requests = getStoredRequests();
+        const found = requests.find(r => r.id === reqId);
+        if (found) {
+          found.status = newStatus;
+          localStorage.setItem('soto_consultation_requests', JSON.stringify(requests));
+          renderRequests();
+          showAdminToast(`Status permohonan ${reqId} diperbarui menjadi '${newStatus}'.`, 'info');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    window.deleteRequest = function(reqId) {
+      if (confirm(`Hapus catatan permohonan ${reqId}?`)) {
+        try {
+          let requests = getStoredRequests();
+          requests = requests.filter(r => r.id !== reqId);
+          localStorage.setItem('soto_consultation_requests', JSON.stringify(requests));
+          renderRequests();
+          showAdminToast(`Permohonan ${reqId} telah dihapus.`, 'info');
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    };
+
+    // Render on initial load
+    renderRequests();
   </script>
 </body>
 
