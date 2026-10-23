@@ -647,53 +647,132 @@
               </div>
             </div>
 
+            <!-- Instant Category Filter Pills -->
+            <div class="flex flex-wrap items-center gap-2 mb-6 pb-2 border-b border-gray-100" id="libraryCategoryTabs">
+              <button type="button" data-category="all" class="category-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0266B3] text-white transition-all duration-200">
+                Semua Kategori
+              </button>
+              <button type="button" data-category="sosial" class="category-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-[#55575c] hover:bg-gray-200 transition-all duration-200">
+                Sosial &amp; Kependudukan
+              </button>
+              <button type="button" data-category="ekonomi" class="category-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-[#55575c] hover:bg-gray-200 transition-all duration-200">
+                Ekonomi &amp; PDRB
+              </button>
+              <button type="button" data-category="pertanian" class="category-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-[#55575c] hover:bg-gray-200 transition-all duration-200">
+                Pertanian &amp; Pangan
+              </button>
+            </div>
+
             <div id="libraryGrid" class="grid md:grid-cols-2 gap-4">
-              <article data-publication data-year="2026" data-title="Lamongan dalam Angka 2026" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
-                <div class="flex items-start justify-between gap-4 mb-5">
-                  <div class="w-11 h-11 rounded-xl bg-[#E34A32]/10 text-[#E34A32] flex items-center justify-center flex-shrink-0"><i data-lucide="book-marked" class="w-5 h-5"></i></div>
-                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2026</span>
+              <!-- Publikasi 1: Lamongan dalam Angka -->
+              <article data-publication data-year="2026" data-category="sosial" data-title="Kabupaten Lamongan dalam Angka 2026" data-pages="482 Halaman" data-desc="Kompilasi komprehensif data statistik geografi, pemerintahan, kependudukan, ketenagakerjaan, sosial, dan ekonomi Kabupaten Lamongan." class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/40 transition-all duration-300 hover:shadow-md bg-white flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-[#E34A32]/10 text-[#E34A32] flex items-center justify-center flex-shrink-0">
+                      <i data-lucide="book-marked" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full">Sosial</span>
+                      <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-0.5 rounded-full">2026</span>
+                    </div>
+                  </div>
+                  <h4 class="font-bold text-[#171719] mb-1.5 text-base leading-snug">Kabupaten Lamongan dalam Angka 2026</h4>
+                  <p class="text-xs text-[#55575c] leading-relaxed mb-4">Kompilasi komprehensif indikator sosial, kependudukan, ekonomi, dan pemerintahan Kabupaten Lamongan.</p>
                 </div>
-                <h4 class="font-bold text-[#171719] mb-2">Lamongan dalam Angka 2026</h4>
-                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Kompilasi indikator sosial, ekonomi, dan pemerintahan Kabupaten Lamongan.</p>
-                <div class="flex items-center gap-3 text-xs font-bold">
-                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
-                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
-                </div>
-              </article>
-              <article data-publication data-year="2025" data-title="Indikator Kesejahteraan Rakyat 2025" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
-                <div class="flex items-start justify-between gap-4 mb-5">
-                  <div class="w-11 h-11 rounded-xl bg-[#0266B3]/10 text-[#0266B3] flex items-center justify-center flex-shrink-0"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
-                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2025</span>
-                </div>
-                <h4 class="font-bold text-[#171719] mb-2">Indikator Kesejahteraan Rakyat 2025</h4>
-                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Gambaran kesejahteraan penduduk dari sisi pendidikan, kesehatan, dan ekonomi.</p>
-                <div class="flex items-center gap-3 text-xs font-bold">
-                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
-                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
-                </div>
-              </article>
-              <article data-publication data-year="2024" data-title="Produk Domestik Regional Bruto 2024" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
-                <div class="flex items-start justify-between gap-4 mb-5">
-                  <div class="w-11 h-11 rounded-xl bg-[#009E49]/10 text-[#009E49] flex items-center justify-center flex-shrink-0"><i data-lucide="landmark" class="w-5 h-5"></i></div>
-                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2024</span>
-                </div>
-                <h4 class="font-bold text-[#171719] mb-2">Produk Domestik Regional Bruto 2024</h4>
-                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Perkembangan nilai tambah ekonomi sektoral dan pertumbuhan ekonomi daerah.</p>
-                <div class="flex items-center gap-3 text-xs font-bold">
-                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
-                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
+                <div class="flex items-center justify-between pt-3 border-t border-gray-100 text-xs font-bold">
+                  <span class="text-[11px] text-gray-400 font-normal">PDF • 18.4 MB</span>
+                  <div class="flex items-center gap-3">
+                    <button type="button" data-library-action="preview" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#005BAC] cursor-pointer">
+                      <i data-lucide="eye" class="w-3.5 h-3.5"></i>Pratinjau
+                    </button>
+                    <a href="https://lamongankab.bps.go.id/publication.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#C93A24]">
+                      <i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF
+                    </a>
+                  </div>
                 </div>
               </article>
-              <article data-publication data-year="2023" data-title="Statistik Pertanian Lamongan 2023" class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/30 transition-colors">
-                <div class="flex items-start justify-between gap-4 mb-5">
-                  <div class="w-11 h-11 rounded-xl bg-[#F6A08E]/25 text-[#E34A32] flex items-center justify-center flex-shrink-0"><i data-lucide="sprout" class="w-5 h-5"></i></div>
-                  <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-1 rounded-full">2023</span>
+
+              <!-- Publikasi 2: Indikator Kesejahteraan Rakyat -->
+              <article data-publication data-year="2025" data-category="sosial" data-title="Indikator Kesejahteraan Rakyat Kabupaten Lamongan 2025" data-pages="164 Halaman" data-desc="Analisis data kesejahteraan masyarakat meliputi taraf kesehatan, pendidikan, pola konsumsi, dan perumahan rakyat di Kabupaten Lamongan." class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/40 transition-all duration-300 hover:shadow-md bg-white flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-[#0266B3]/10 text-[#0266B3] flex items-center justify-center flex-shrink-0">
+                      <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full">Sosial</span>
+                      <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-0.5 rounded-full">2025</span>
+                    </div>
+                  </div>
+                  <h4 class="font-bold text-[#171719] mb-1.5 text-base leading-snug">Indikator Kesejahteraan Rakyat 2025</h4>
+                  <p class="text-xs text-[#55575c] leading-relaxed mb-4">Gambaran kesejahteraan penduduk dari sisi IPM, ketenagakerjaan, pendidikan, dan kesehatan.</p>
                 </div>
-                <h4 class="font-bold text-[#171719] mb-2">Statistik Pertanian Lamongan 2023</h4>
-                <p class="text-xs text-[#55575c] leading-relaxed mb-5">Arsip produksi tanaman pangan, hortikultura, dan peternakan Kabupaten Lamongan.</p>
-                <div class="flex items-center gap-3 text-xs font-bold">
-                  <button data-library-action="read" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#171719]"><i data-lucide="book-open" class="w-3.5 h-3.5"></i>Baca online</button>
-                  <button data-library-action="download" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#171719]"><i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF</button>
+                <div class="flex items-center justify-between pt-3 border-t border-gray-100 text-xs font-bold">
+                  <span class="text-[11px] text-gray-400 font-normal">PDF • 7.2 MB</span>
+                  <div class="flex items-center gap-3">
+                    <button type="button" data-library-action="preview" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#005BAC] cursor-pointer">
+                      <i data-lucide="eye" class="w-3.5 h-3.5"></i>Pratinjau
+                    </button>
+                    <a href="https://lamongankab.bps.go.id/publication.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#C93A24]">
+                      <i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Publikasi 3: PDRB Lamongan -->
+              <article data-publication data-year="2024" data-category="ekonomi" data-title="Produk Domestik Regional Bruto Kabupaten Lamongan Menurut Lapangan Usaha 2024" data-pages="210 Halaman" data-desc="Taksiran nilai tambah bruto barang dan jasa yang dihasilkan seluruh unit usaha ekonomi di Kabupaten Lamongan atas dasar harga berlaku dan konstan." class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/40 transition-all duration-300 hover:shadow-md bg-white flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-[#009E49]/10 text-[#009E49] flex items-center justify-center flex-shrink-0">
+                      <i data-lucide="landmark" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-full">Ekonomi</span>
+                      <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-0.5 rounded-full">2024</span>
+                    </div>
+                  </div>
+                  <h4 class="font-bold text-[#171719] mb-1.5 text-base leading-snug">Produk Domestik Regional Bruto 2024</h4>
+                  <p class="text-xs text-[#55575c] leading-relaxed mb-4">Perkembangan nilai tambah ekonomi sektoral, struktur perekonomian, dan laju pertumbuhan riil Lamongan.</p>
+                </div>
+                <div class="flex items-center justify-between pt-3 border-t border-gray-100 text-xs font-bold">
+                  <span class="text-[11px] text-gray-400 font-normal">PDF • 11.6 MB</span>
+                  <div class="flex items-center gap-3">
+                    <button type="button" data-library-action="preview" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#005BAC] cursor-pointer">
+                      <i data-lucide="eye" class="w-3.5 h-3.5"></i>Pratinjau
+                    </button>
+                    <a href="https://lamongankab.bps.go.id/publication.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#C93A24]">
+                      <i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Publikasi 4: Statistik Pertanian -->
+              <article data-publication data-year="2023" data-category="pertanian" data-title="Statistik Pertanian, Perikanan dan Peternakan Lamongan 2023" data-pages="148 Halaman" data-desc="Data luas panen, produktivitas, serta estimasi produksi padi, jagung, perikanan budidaya, dan populasi ternak Kabupaten Lamongan." class="border border-black/5 rounded-2xl p-5 hover:border-[#0266B3]/40 transition-all duration-300 hover:shadow-md bg-white flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-[#F6A08E]/25 text-[#E34A32] flex items-center justify-center flex-shrink-0">
+                      <i data-lucide="sprout" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded-full">Pertanian</span>
+                      <span class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-0.5 rounded-full">2023</span>
+                    </div>
+                  </div>
+                  <h4 class="font-bold text-[#171719] mb-1.5 text-base leading-snug">Statistik Pertanian Lamongan 2023</h4>
+                  <p class="text-xs text-[#55575c] leading-relaxed mb-4">Arsip produksi tanaman pangan > 1.1 juta ton padi, hortikultura, perikanan tambak, dan peternakan.</p>
+                </div>
+                <div class="flex items-center justify-between pt-3 border-t border-gray-100 text-xs font-bold">
+                  <span class="text-[11px] text-gray-400 font-normal">PDF • 9.8 MB</span>
+                  <div class="flex items-center gap-3">
+                    <button type="button" data-library-action="preview" class="inline-flex items-center gap-1.5 text-[#0266B3] hover:text-[#005BAC] cursor-pointer">
+                      <i data-lucide="eye" class="w-3.5 h-3.5"></i>Pratinjau
+                    </button>
+                    <a href="https://lamongankab.bps.go.id/publication.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[#E34A32] hover:text-[#C93A24]">
+                      <i data-lucide="download" class="w-3.5 h-3.5"></i>Unduh PDF
+                    </a>
+                  </div>
                 </div>
               </article>
             </div>
@@ -1610,6 +1689,56 @@
           <span>Zona Integritas Menuju WBK / WBBM</span>
         </div>
         <span class="font-medium text-[#171719]">Kanal 3524 &bull; Satu Data Indonesia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Pratinjau Publikasi Digital (Publication Preview Modal) -->
+  <div id="publicationPreviewModal" class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="pubPreviewTitle">
+    <div class="modal-content bg-white w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl border border-white/80 relative text-[#2E3034] p-6 sm:p-8">
+      <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#0266B3]/10 text-[#0266B3] flex items-center justify-center shrink-0">
+            <i data-lucide="book-marked" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="pubPreviewCategory" class="text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-full uppercase">Kategori</span>
+              <span id="pubPreviewYear" class="text-xs font-bold text-[#0266B3] bg-[#EAF3F8] px-2.5 py-0.5 rounded-full">2026</span>
+            </div>
+            <span class="text-[11px] text-[#55575c]">Publikasi Resmi BPS Kabupaten Lamongan</span>
+          </div>
+        </div>
+        <button id="closePubPreviewBtn" type="button" class="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center transition-colors cursor-pointer" aria-label="Tutup Dialog">
+          <i data-lucide="x" class="w-4 h-4 text-[#2E3034]"></i>
+        </button>
+      </div>
+
+      <div class="py-5 space-y-4">
+        <div>
+          <h3 id="pubPreviewTitle" class="text-lg sm:text-xl font-bold text-[#171719] leading-snug">Judul Dokumen Publikasi</h3>
+          <p id="pubPreviewPages" class="text-xs text-gray-500 font-medium mt-1">482 Halaman &bull; Format Dokumen PDF Resmi</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 text-xs text-[#55575c] leading-relaxed">
+          <p class="font-bold text-[#171719] mb-1.5 text-[11px] uppercase tracking-wider text-gray-400">Ringkasan Publikasi</p>
+          <p id="pubPreviewDesc">Deskripsi isi publikasi...</p>
+        </div>
+
+        <div class="rounded-xl border border-blue-100 bg-[#EAF3F8]/50 p-3.5 flex items-start gap-3 text-xs text-[#0266B3]">
+          <i data-lucide="info" class="w-4 h-4 shrink-0 mt-0.5"></i>
+          <span class="leading-relaxed">Dokumen lengkap dapat diunduh gratis tanpa biaya (Rp 0) langsung dari repositori resmi Badan Pusat Statistik Kabupaten Lamongan.</span>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-end gap-3">
+        <button id="cancelPubPreviewBtn" type="button" class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer">
+          Tutup
+        </button>
+        <a id="pubPreviewDownloadBtn" href="https://lamongankab.bps.go.id/publication.html" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#0266B3] hover:bg-[#005BAC] shadow-md transition-colors">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>Buka Repositori Resmi BPS</span>
+        </a>
       </div>
     </div>
   </div>

@@ -235,7 +235,10 @@ function initLibraryCatalog() {
   const yearSelect = document.getElementById('libraryYear');
   const publications = Array.from(document.querySelectorAll('[data-publication]'));
   const emptyState = document.getElementById('libraryEmpty');
+  const categoryTabs = document.querySelectorAll('#libraryCategoryTabs .category-pill');
   if (!searchInput || !yearSelect || !publications.length || !emptyState) return;
+
+  let currentCategory = 'all';
 
   function filterPublications() {
     const query = searchInput.value.trim().toLowerCase();
@@ -245,7 +248,8 @@ function initLibraryCatalog() {
     publications.forEach((publication) => {
       const matchesQuery = publication.dataset.title.toLowerCase().includes(query);
       const matchesYear = year === 'all' || publication.dataset.year === year;
-      const isVisible = matchesQuery && matchesYear;
+      const matchesCategory = currentCategory === 'all' || publication.dataset.category === currentCategory;
+      const isVisible = matchesQuery && matchesYear && matchesCategory;
       publication.classList.toggle('hidden', !isVisible);
       if (isVisible) visibleCount += 1;
     });
@@ -253,17 +257,84 @@ function initLibraryCatalog() {
     emptyState.classList.toggle('hidden', visibleCount !== 0);
   }
 
+  // Handle Category Filter Tabs
+  categoryTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      categoryTabs.forEach(t => {
+        t.classList.remove('bg-[#0266B3]', 'text-white');
+        t.classList.add('bg-gray-100', 'text-[#55575c]');
+      });
+      tab.classList.remove('bg-gray-100', 'text-[#55575c]');
+      tab.classList.add('bg-[#0266B3]', 'text-white');
+      currentCategory = tab.dataset.category || 'all';
+      filterPublications();
+    });
+  });
+
   searchInput.addEventListener('input', filterPublications);
   yearSelect.addEventListener('change', filterPublications);
 
+  // Publication Preview Modal Elements
+  const previewModal = document.getElementById('publicationPreviewModal');
+  const closePreviewBtn = document.getElementById('closePubPreviewBtn');
+  const cancelPreviewBtn = document.getElementById('cancelPubPreviewBtn');
+  const previewTitle = document.getElementById('pubPreviewTitle');
+  const previewCategory = document.getElementById('pubPreviewCategory');
+  const previewYear = document.getElementById('pubPreviewYear');
+  const previewPages = document.getElementById('pubPreviewPages');
+  const previewDesc = document.getElementById('pubPreviewDesc');
+
+  function closePreview() {
+    if (previewModal) {
+      previewModal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (closePreviewBtn) closePreviewBtn.addEventListener('click', closePreview);
+  if (cancelPreviewBtn) cancelPreviewBtn.addEventListener('click', closePreview);
+  if (previewModal) {
+    previewModal.addEventListener('click', (e) => {
+      if (e.target === previewModal) closePreview();
+    });
+  }
+
+  // Handle Publication Card Action Buttons
+  publications.forEach((card) => {
+    const previewBtn = card.querySelector('[data-library-action="preview"]');
+    if (previewBtn && previewModal) {
+      previewBtn.addEventListener('click', () => {
+        const title = card.dataset.title || 'Publikasi BPS';
+        const year = card.dataset.year || '2026';
+        const category = card.dataset.category || 'Statistik';
+        const pages = card.dataset.pages || 'Dokumen Resmi';
+        const desc = card.dataset.desc || 'Ringkasan publikasi resmi Badan Pusat Statistik Kabupaten Lamongan.';
+
+        if (previewTitle) previewTitle.textContent = title;
+        if (previewYear) previewYear.textContent = year;
+        if (previewCategory) previewCategory.textContent = category.toUpperCase();
+        if (previewPages) previewPages.innerHTML = `${pages} &bull; Format Dokumen PDF Resmi`;
+        if (previewDesc) previewDesc.textContent = desc;
+
+        previewModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          window.lucide.createIcons();
+        }
+      });
+    }
+  });
+
   document.querySelectorAll('[data-library-action]').forEach((action) => {
+    if (action.dataset.libraryAction === 'preview') return;
     action.addEventListener('click', () => {
       const messages = {
         read: 'Publikasi siap dibaca online melalui katalog digital BPS.',
-        download: 'Tautan unduh publikasi akan tersedia setelah katalog tersambung ke arsip BPS.',
+        download: 'Membuka tautan unduh publikasi resmi di portal BPS Lamongan.',
         reserve: 'Reservasi kunjungan PST akan dibuka melalui konfirmasi petugas layanan.'
       };
-      showToast(messages[action.dataset.libraryAction]);
+      showToast(messages[action.dataset.libraryAction] || 'Memproses permintaan...');
     });
   });
 }
