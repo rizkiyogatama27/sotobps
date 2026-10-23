@@ -807,27 +807,34 @@
               <div>
                 <div class="flex items-center justify-between mb-8">
                   <div class="w-12 h-12 rounded-2xl bg-[#E34A32]/10 text-[#E34A32] flex items-center justify-center"><i data-lucide="users-round" class="w-6 h-6"></i></div>
-                  <span class="text-xs font-bold uppercase tracking-wider text-[#E34A32]">Offline</span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#E34A32]">Offline Tatap Muka</span>
                 </div>
                 <h3 class="text-2xl font-bold text-[#171719] mb-3">Meja Layanan PST</h3>
-                <p class="text-sm text-[#55575c] leading-relaxed">Datang langsung ke kantor BPS Lamongan untuk berdiskusi dengan petugas atau statistisi secara tatap muka.</p>
+                <p class="text-sm text-[#55575c] leading-relaxed">Datang langsung ke kantor BPS Lamongan untuk berdiskusi dengan petugas atau statistisi secara tatap muka di ruang PST.</p>
               </div>
-              <a href="https://pst.bps.go.id/" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#E34A32] text-white text-sm font-bold hover:bg-[#C93A24] transition-colors">
-                Buat janji kunjungan <i data-lucide="calendar-plus" class="w-4 h-4"></i>
-              </a>
+              <div class="mt-8 flex flex-col sm:flex-row gap-2">
+                <button type="button" id="openAppointmentBtn" class="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#E34A32] text-white text-xs font-bold hover:bg-[#C93A24] transition-colors cursor-pointer shadow-sm">
+                  <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                  <span>Janji Kunjungan</span>
+                </button>
+                <a href="https://pst.bps.go.id/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center py-3 px-3 rounded-xl bg-gray-100 text-gray-700 text-xs font-bold hover:bg-gray-200 transition-colors" title="Buka Portal PST Nasional">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
             </article>
 
             <article data-rise class="bg-white rounded-3xl p-7 min-h-[330px] flex flex-col justify-between border border-black/5 card-shadow-lift">
               <div>
                 <div class="flex items-center justify-between mb-8">
                   <div class="w-12 h-12 rounded-2xl bg-[#0266B3]/10 text-[#0266B3] flex items-center justify-center"><i data-lucide="clipboard-pen-line" class="w-6 h-6"></i></div>
-                  <span class="text-xs font-bold uppercase tracking-wider text-[#0266B3]">Online</span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#0266B3]">Online Terstruktur</span>
                 </div>
                 <h3 class="text-2xl font-bold text-[#171719] mb-3">Halo PST</h3>
-                <p class="text-sm text-[#55575c] leading-relaxed">Ajukan tiket konsultasi terstruktur dan permohonan data melalui portal resmi Halo PST.</p>
+                <p class="text-sm text-[#55575c] leading-relaxed">Ajukan tiket konsultasi terstruktur, permohonan data mikro, dan tracking status permohonan melalui portal resmi Halo PST.</p>
               </div>
-              <a href="https://halopst.bps.go.id" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#0266B3] text-white text-sm font-bold hover:bg-[#005BAC] transition-colors">
-                Buka Halo PST <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              <a href="https://halopst.bps.go.id" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-[#0266B3] text-white text-xs sm:text-sm font-bold hover:bg-[#005BAC] transition-colors shadow-sm">
+                <span>Buka Portal Halo PST</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
               </a>
             </article>
 
@@ -1740,6 +1747,69 @@
           <span>Buka Repositori Resmi BPS</span>
         </a>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal: Formulir Janji Kunjungan Konsultasi PST (Accessible Dialog) -->
+  <div id="appointmentModal" class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="appointmentModalTitle">
+    <div class="modal-content bg-white w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border border-white/80 relative text-[#2E3034] p-6 sm:p-8">
+      <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#E34A32]/10 text-[#E34A32] flex items-center justify-center shrink-0">
+            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="appointmentModalTitle" class="text-lg font-bold text-[#171719] leading-tight">Buat Janji Kunjungan PST</h3>
+            <p class="text-[11px] text-[#55575c]">Ruang Pelayanan Statistik Terpadu &bull; Jl. Veteran No. 12 Lamongan</p>
+          </div>
+        </div>
+        <button id="closeAppointmentBtn" type="button" class="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center transition-colors cursor-pointer" aria-label="Tutup Dialog">
+          <i data-lucide="x" class="w-4 h-4 text-[#2E3034]"></i>
+        </button>
+      </div>
+
+      <form id="appointmentForm" class="py-4 space-y-3.5">
+        <div>
+          <label for="consultName" class="block text-xs font-semibold text-[#171719] mb-1">Nama Lengkap Pengunjung</label>
+          <input id="consultName" type="text" required placeholder="Contoh: Ahmad Fauzi" class="w-full px-3.5 py-2.5 bg-[#F4F5F5] border border-black/10 rounded-xl text-xs text-[#171719] focus:outline-none focus:ring-2 focus:ring-[#E34A32]/20 focus:border-[#E34A32]">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="consultRole" class="block text-xs font-semibold text-[#171719] mb-1">Kategori Pengunjung</label>
+            <select id="consultRole" required class="w-full px-3.5 py-2.5 bg-[#F4F5F5] border border-black/10 rounded-xl text-xs text-[#171719] focus:outline-none focus:ring-2 focus:ring-[#E34A32]/20 focus:border-[#E34A32]">
+              <option value="Mahasiswa / Peneliti">Mahasiswa / Peneliti</option>
+              <option value="Instansi Pemerintah / OPD">Instansi Pemerintah / OPD</option>
+              <option value="Perusahaan Swasta / Bisnis">Perusahaan Swasta / Bisnis</option>
+              <option value="Masyarakat Umum">Masyarakat Umum</option>
+            </select>
+          </div>
+          <div>
+            <label for="consultDate" class="block text-xs font-semibold text-[#171719] mb-1">Rencana Tanggal Kunjungan</label>
+            <input id="consultDate" type="date" required class="w-full px-3.5 py-2.5 bg-[#F4F5F5] border border-black/10 rounded-xl text-xs text-[#171719] focus:outline-none focus:ring-2 focus:ring-[#E34A32]/20 focus:border-[#E34A32]">
+          </div>
+        </div>
+
+        <div>
+          <label for="consultTopic" class="block text-xs font-semibold text-[#171719] mb-1">Topik Kebutuhan Data / Konsultasi</label>
+          <textarea id="consultTopic" rows="3" required placeholder="Contoh: Kebutuhan data PDRB sektoral dan data inflasi Lamongan untuk penyusunan skripsi / perencanaan dinas." class="w-full px-3.5 py-2 bg-[#F4F5F5] border border-black/10 rounded-xl text-xs text-[#171719] focus:outline-none focus:ring-2 focus:ring-[#E34A32]/20 focus:border-[#E34A32]"></textarea>
+        </div>
+
+        <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100 flex items-center gap-2.5 text-[11px] text-emerald-800">
+          <i data-lucide="shield-check" class="w-4 h-4 shrink-0 text-emerald-600"></i>
+          <span>Seluruh konsultasi di PST BPS Lamongan berstatus resmi <strong>Rp 0 (Bebas Biaya / Gratis)</strong>.</span>
+        </div>
+
+        <div class="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-end gap-2.5">
+          <button id="cancelAppointmentBtn" type="button" class="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer">
+            Batal
+          </button>
+          <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#E34A32] hover:bg-[#C93A24] shadow-md transition-colors cursor-pointer">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Konfirmasi Janji Kunjungan</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 

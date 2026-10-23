@@ -340,6 +340,60 @@ function initLibraryCatalog() {
 }
 
 function initConsultationActions() {
+  const openBtn = document.getElementById('openAppointmentBtn');
+  const modal = document.getElementById('appointmentModal');
+  const closeBtn = document.getElementById('closeAppointmentBtn');
+  const cancelBtn = document.getElementById('cancelAppointmentBtn');
+  const form = document.getElementById('appointmentForm');
+
+  function openModal() {
+    if (modal) {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      // Set default minimum date to today
+      const dateInput = document.getElementById('consultDate');
+      if (dateInput && !dateInput.value) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+      }
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('consultName')?.value.trim() || 'Pengunjung';
+      const role = document.getElementById('consultRole')?.value || 'Umum';
+      const date = document.getElementById('consultDate')?.value || '';
+
+      closeModal();
+      form.reset();
+
+      showToast(`Terima kasih Bapak/Ibu ${name} (${role}). Janji kunjungan PST untuk tanggal ${date} berhasil dicatat.`);
+    });
+  }
+
   document.querySelectorAll('[data-consultation-action]').forEach((action) => {
     action.addEventListener('click', () => {
       showToast('Permintaan janji kunjungan dicatat. Petugas PST akan mengonfirmasi jadwal Anda.');
