@@ -10,6 +10,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo-bps.png">
   <link rel="apple-touch-icon" href="assets/images/logo-bps.png">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Primary Meta Tags -->
   <meta name="description" content="SOTO 3524 (Sistem Observasi &amp; Transparansi Online): Portal resmi satu pintu layanan statistik, konsultasi, rekomendasi, dan publikasi data BPS Kabupaten Lamongan.">
@@ -22,13 +23,46 @@
   <meta property="og:site_name" content="SOTO 3524 • BPS Lamongan">
   <meta property="og:title" content="SOTO 3524: Sistem Observasi &amp; Transparansi Online BPS Lamongan">
   <meta property="og:description" content="Portal resmi layanan statistik terpadu BPS Kabupaten Lamongan: Rekomendasi Statistik, Konsultasi Statistik, dan Perpustakaan Statistik.">
-  <meta property="og:image" content="assets/images/logo-bps.png">
+  <meta property="og:image" content="assets/images/hero-bg.webp">
+  <meta property="og:image:alt" content="Antarmuka portal layanan statistik SOTO 3524 BPS Lamongan">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SOTO 3524 • BPS Kabupaten Lamongan">
   <meta name="twitter:description" content="Portal resmi layanan statistik terpadu BPS Kabupaten Lamongan.">
-  <meta name="twitter:image" content="assets/images/logo-bps.png">
+  <meta name="twitter:image" content="assets/images/hero-bg.webp">
+  <meta name="twitter:image:alt" content="Antarmuka portal layanan statistik SOTO 3524 BPS Lamongan">
+
+  <!-- JSON-LD Structured Data for Government Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GovernmentOrganization",
+    "name": "BPS Kabupaten Lamongan",
+    "alternateName": "Badan Pusat Statistik Kabupaten Lamongan",
+    "url": "https://lamongankab.bps.go.id",
+    "logo": "https://lamongankab.bps.go.id/assets/images/logo-bps.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+62-322-321151",
+      "contactType": "customer service",
+      "areaServed": "ID-JI",
+      "availableLanguage": ["Indonesian"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. KHA Dahlan No. 43",
+      "addressLocality": "Lamongan",
+      "addressRegion": "Jawa Timur",
+      "postalCode": "62217",
+      "addressCountry": "ID"
+    },
+    "sameAs": [
+      "https://www.facebook.com/bpslamongan",
+      "https://www.instagram.com/bpslamongan"
+    ]
+  }
+  </script>
 
   <!-- Performance Optimization: DNS Prefetch & Preconnect -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -47,18 +81,28 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch((error) => {
+          console.error('Service worker registration failed:', error);
+        });
+      });
+    }
+  </script>
+
   <!-- Modular Stylesheet -->
   <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 
 <body class="antialiased selection:bg-[#E34A32] selection:text-white">
 
-  <!-- Main Wrapper (max-width-[1440px] with #ECEDEE background) -->
-  <div class="max-w-[1440px] mx-auto min-h-screen px-3 sm:px-6 lg:px-8 py-3 sm:py-6">
+  <!-- Main Wrapper -->
+  <div class="w-full min-h-screen">
 
-    <!-- Outer Rounded Shell Container -->
-    <div
-      class="relative bg-[#F4F5F5] rounded-[28px] sm:rounded-[40px] border border-black/[0.06] inner-inset-glow overflow-hidden">
+    <!-- Outer Shell Container -->
+    <div class="relative bg-[#F4F5F5] overflow-hidden">
       <!-- SECTION 1: HERO SHELL -->
       <section id="hero" class="relative min-h-[92svh] lg:min-h-[100svh] flex flex-col justify-between overflow-hidden">
 
